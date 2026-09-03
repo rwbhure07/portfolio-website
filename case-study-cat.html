@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Competency Assessment Tool — Case Study | Rahul Bhure</title>
+<meta name="description" content="How I designed the Competency Assessment Tool at TCS Interactive — a role-based web app that streamlines enterprise competency assessments end to end.">
+<meta name="theme-color" content="#08070d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3CradialGradient id='g' cx='35%25' cy='30%25' r='75%25'%3E%3Cstop offset='0%25' stop-color='%23E9D5FF'/%3E%3Cstop offset='45%25' stop-color='%23A855F7'/%3E%3Cstop offset='100%25' stop-color='%236D28D9'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='16' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true">
+  <div class="glow glow--top"></div>
+  <div class="glow glow--bottom"></div>
+  <div class="grid-overlay"></div>
+</div>
+
+<header class="site-header">
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="brand">
+      <span class="brand-orb"></span>
+      <span class="brand-name">Rahul Bhure</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#work" class="nav-link">Work</a></li>
+      <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+      <li><a href="index.html#about" class="nav-link">About</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <a href="index.html#contact" class="btn btn-pill nav-cta">Let's Talk</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#contact" class="btn btn-pill">Let's Talk</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- CASE HERO -->
+  <section class="case-hero">
+    <div class="container case-hero-inner">
+      <a href="index.html#work" class="breadcrumb reveal">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back to portfolio
+      </a>
+
+      <span class="badge reveal" style="margin-top:22px;">
+        <span class="badge-dot"></span>
+        Product Design · Case Study
+      </span>
+
+      <h1 class="case-title reveal">Designing a user-friendly solution to navigate the complexity of <span class="grad-text">competency assessment management</span></h1>
+
+      <p class="case-sub reveal">
+        As a Product Designer at TCS Interactive, I designed the Competency Assessment Tool (CAT) — a
+        role-based web app that helps enterprise L&amp;D teams run consistent, transparent competency
+        assessments instead of juggling manual spreadsheets and third-party tools.
+      </p>
+      <p class="case-footnote reveal">*Blue Harbor is a fictional client name used to protect confidentiality.</p>
+
+      <div class="case-meta reveal">
+        <div class="case-meta-item">
+          <span class="case-meta-label">Role</span>
+          <span class="case-meta-value">Product Designer</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-label">Company</span>
+          <span class="case-meta-value">TCS Interactive</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-label">Client</span>
+          <span class="case-meta-value">Blue Harbor*</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-label">Focus</span>
+          <span class="case-meta-value">UI Design · UX Research · Product Design</span>
+        </div>
+      </div>
+
+      <div class="prototype-embed-frame reveal" style="margin-top:56px;" data-prototype-embed>
+        <iframe src="assets/prototype/cat/dashboard-1c-v2.html" title="Competency Assessment Tool — interactive dashboard prototype" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="case-block">
+    <div class="container">
+      <h2 class="case-block-title reveal">About</h2>
+      <p class="case-block-text reveal">
+        As a Designer at TCS, I was assigned to design a web application — the Competency Assessment
+        Tool — to streamline and optimize the competency assessment process for Blue Harbor. This
+        initiative aims to:
+      </p>
+      <div class="point-grid">
+        <div class="point-card reveal">
+          <div class="point-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div>
+          <p>Accurately assess the current skill levels of different functional roles within the organization.</p>
+        </div>
+        <div class="point-card reveal">
+          <div class="point-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></div>
+          <p>Empower leaders to support individual and team growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHALLENGE -->
+  <section class="case-block">
+    <div class="container">
+      <h2 class="case-block-title reveal">Challenge</h2>
+      <p class="case-block-text reveal">
+        The existing competency assessment process relied on manual steps, making it time-consuming
+        and prone to errors.
+      </p>
+      <div class="point-grid">
+        <div class="point-card reveal">
+          <div class="point-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
+          <p>This led to inefficiencies, inconsistencies, and difficulty identifying skill gaps.</p>
+        </div>
+        <div class="point-card reveal">
+          <div class="point-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"></path></svg></div>
+          <p>L&amp;D admins struggled to manage competency frameworks, add or update roles, and keep a consistent, standardized approach across the organization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TERMS -->
+  <section class="case-block">
+    <div class="container">
+      <h2 class="case-block-title reveal">Let's learn some terms</h2>
+      <p class="case-block-text reveal">A few definitions that come up throughout this case study.</p>
+
+      <div class="term-grid">
+        <div class="term-card reveal">
+          <div class="term-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"></path></svg>
+          </div>
+          <h3>Competency</h3>
+          <p>The combination of knowledge, skills, abilities, and behaviors that contribute to individual and organizational performance.</p>
+        </div>
+        <div class="term-card reveal">
+          <div class="term-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>
+          </div>
+          <h3>Competency Group</h3>
+          <p>A collection of related competencies that share a common theme or area of expertise.</p>
+        </div>
+        <div class="term-card reveal">
+          <div class="term-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path></svg>
+          </div>
+          <h3>Assessment</h3>
+          <p>The process of evaluating or measuring the knowledge, skills, abilities, or other qualities of individuals, groups, or entities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USER GROUPS -->
+  <section class="case-block">
+    <div class="container">
+      <h2 class="case-block-title reveal">Defining User Groups</h2>
+      <p class="case-block-text reveal">Three roles keep the tool running — think of it as a coaching team.</p>
+
+      <div class="persona-grid">
+        <div class="persona-card reveal">
+          <div class="persona-avatar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"></path></svg></div>
+          <h3>L&amp;D Admin</h3>
+          <p>The coach and regulating authority of the assessment team. They design the training drills (competency groups), assign players (Assessor and Assessee roles), track everyone's progress, and help them improve their skills.</p>
+        </div>
+        <div class="persona-card reveal">
+          <div class="persona-avatar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
+          <h3>Assessor</h3>
+          <p>The star player of the assessment game — a skilled referee, carefully evaluating each trainee's performance against the coach's guidelines and providing feedback to help them level up.</p>
+        </div>
+        <div class="persona-card reveal">
+          <div class="persona-avatar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div>
+          <h3>Assessee</h3>
+          <p>The trainee stepping onto the field — eager to show off their skills, taking on the challenges the L&amp;D Admin sets, and using Assessor feedback to grow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIERARCHY -->
+  <section class="case-block">
+    <div class="container">
+      <h2 class="case-block-title reveal">Let's Understand the Hierarchy</h2>
+      <p class="case-block-text reveal">A small example team shows how the three roles connect in practice.</p>
+
+      <div class="org-scroll reveal">
+        <div class="org-chart">
+          <div class="org-admin">
+            <div class="org-card is-admin reveal">
+              <img class="org-card-avatar" src="assets/img/cat/avatars/avatar-admin.png" alt="L&amp;D Admin avatar">
+              <span class="org-card-name">L&amp;D Admin</span>
+              <ul>
+                <li>Create Competency &amp; Competency Group</li>
+                <li>Create Role, Add User and Assign Role</li>
+                <li>Start Survey which leads to start of Assessment</li>
+                <li>Assign Assessor to Assessee</li>
+              </ul>
+            </div>
+            <div class="org-connector-h"></div>
+          </div>
+
+          <div class="org-rows">
+            <div class="org-row">
+              <div class="org-card reveal">
+                <img class="org-card-avatar" src="assets/img/cat/avatars/avatar-ava.png" alt="Ava avatar">
+                <span class="org-card-name">Ava</span>
+                <span class="org-card-role">Assessor</span>
+                <ul>
+                  <li>Will do the Assessment of Anna &amp; Leo</li>
+                  <li>Will complete her Self Assessment</li>
+                </ul>
+              </div>
+              <div class="org-connector-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </div>
+              <div class="org-card reveal">
+                <img class="org-card-avatar" src="assets/img/cat/avatars/avatar-anna.png" alt="Anna avatar">
+                <span class="org-card-name">Anna</span>
+                <span class="org-card-role">Assessee</span>
+                <ul><li>Complete Self Assessment</li></ul>
+              </div>
+              <div class="org-connector-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </div>
+              <div class="org-card reveal">
+                <img class="org-card-avatar" src="assets/img/cat/avatars/avatar-leo.png" alt="Leo avatar">
+                <span class="org-card-name">Leo</span>
+                <span class="org-card-role">Assessee</span>
+                <ul><li>Leo will complete his Self Assessment</li></ul>
+              </div>
+            </div>
+
+            <div class="org-row">
+              <div class="org-card reveal">
+                <img class="org-card-avatar" src="assets/img/cat/avatars/avatar-alex.png" alt="Alex avatar">
+                <span class="org-card-name">Alex</span>
+                <span class="org-card-role">Assessor</span>
+                <ul>
+                  <li>Alex will do the Assessment of Max</li>
+                  <li>Alex will complete his Self Assessment</li>
+                </ul>
+              </div>
+              <div class="org-connector-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </div>
+              <div class="org-card reveal">
+                <img class="org-card-avatar" src="assets/img/cat/avatars/avatar-max.png" alt="Max avatar">
+                <span class="org-card-name">Max</span>
+                <span class="org-card-role">Assessor &amp; Assessee</span>
+                <ul>
+                  <li>Max will do the Assessment of Ash</li>
+                  <li>Max will complete his Self Assessment</li>
+                </ul>
+              </div>
+              <div class="org-connector-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </div>
+              <div class="org-card reveal">
+                <img class="org-card-avatar" src="assets/img/cat/avatars/avatar-ash.png" alt="Ash avatar">
+                <span class="org-card-name">Ash</span>
+                <span class="org-card-role">Assessee</span>
+                <ul><li>Ash will complete his Self Assessment</li></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN PROCESS -->
+  <section class="case-block">
+    <div class="container">
+      <h2 class="case-block-title reveal">Design Process</h2>
+      <p class="case-block-text reveal">
+        From the project documents shared by the client, I analyzed the content to devise an effective
+        action plan. To deeply understand user needs, I conducted in-depth interviews across different
+        phases of design, then organized everything I learned into clear groups — giving me a solid,
+        well-scoped foundation to design from.
+      </p>
+
+      <div class="sticky-board">
+        <div class="sticky-role">
+          <h3 class="sticky-role-label">L&amp;D Admin</h3>
+          <div class="sticky-categories">
+            <div class="sticky-group">
+              <p class="sticky-group-label">Competency Framework Management</p>
+              <div class="sticky-notes sticky-notes--yellow">
+                <div class="sticky-note reveal">As an L&amp;D Admin, I need to efficiently manage competency frameworks for different roles within the organization.</div>
+                <div class="sticky-note reveal">This involves adding new roles, selecting or creating relevant competency groups, customizing competency lists, and assigning appropriate Proficiency Levels.</div>
+                <div class="sticky-note reveal">I should be able to easily search and browse existing competency groups and competencies to avoid duplication.</div>
+                <div class="sticky-note reveal">A visual representation of the competency framework for each role would be helpful, such as a mind map or competency tree.</div>
+              </div>
+            </div>
+            <div class="sticky-group">
+              <p class="sticky-group-label">Assessment Configuration and Scheduling</p>
+              <div class="sticky-notes sticky-notes--salmon">
+                <div class="sticky-note reveal">I need the ability to define and schedule assessment periods for different roles or groups of employees.</div>
+                <div class="sticky-note reveal">This includes setting start and end dates, assigning eligible roles, and specifying the assessment window for participation.</div>
+                <div class="sticky-note reveal">Integration with existing HR systems would be ideal for automatically populating employee data and roles.</div>
+                <div class="sticky-note reveal">Visual calendars or scheduling tools would help me clearly manage and track upcoming assessments.</div>
+              </div>
+            </div>
+            <div class="sticky-group">
+              <p class="sticky-group-label">Assessor Management and Assignment</p>
+              <div class="sticky-notes sticky-notes--blue">
+                <div class="sticky-note reveal">I need to efficiently assign Assessors to Assessees based on various criteria, such as expertise, role alignment, and potential conflicts of interest.</div>
+                <div class="sticky-note reveal">The system should suggest suitable Assessors based on their competencies and availability.</div>
+                <div class="sticky-note reveal">I should be able to manually override suggestions and adjust assignments as needed.</div>
+                <div class="sticky-note reveal">A clear overview of assigned Assessors for each Assessee would be helpful for tracking and communication purposes.</div>
+              </div>
+            </div>
+            <div class="sticky-group">
+              <p class="sticky-group-label">Assessment Monitoring and Reporting</p>
+              <div class="sticky-notes sticky-notes--gray">
+                <div class="sticky-note reveal">I need real-time insights into the progress of ongoing assessments, including completion rates and potential delays.</div>
+                <div class="sticky-note reveal">Detailed reports should be available for various aspects, such as individual Assessee performance, competency group mastery levels, and overall assessment trends.</div>
+                <div class="sticky-note reveal">The ability to filter and drill down into reports based on specific criteria would be valuable for deeper analysis.</div>
+                <div class="sticky-note reveal">Visual dashboards with key performance indicators (KPIs) would provide a quick and comprehensive overview of assessment results.</div>
+              </div>
+            </div>
+            <div class="sticky-group">
+              <p class="sticky-group-label">Actionable Insights and Continuous Improvement</p>
+              <div class="sticky-notes sticky-notes--green">
+                <div class="sticky-note reveal">The assessment data should be used to identify skill gaps, strengths, and areas for improvement within the organization.</div>
+                <div class="sticky-note reveal">I need tools and reports to generate actionable insights and develop targeted training and development programs.</div>
+                <div class="sticky-note reveal">A continuous feedback loop between assessment data, training initiatives, and competency frameworks would ensure ongoing improvement and alignment.</div>
+                <div class="sticky-note reveal">The system should track the effectiveness of implemented training programs and measure their impact on competency development.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sticky-role">
+          <h3 class="sticky-role-label">Assessor</h3>
+          <div class="sticky-categories">
+            <div class="sticky-group">
+              <p class="sticky-group-label">Viewing Assessments</p>
+              <div class="sticky-notes sticky-notes--yellow">
+                <div class="sticky-note reveal">As an Assessor, when I log in, I need to see a clear and concise list of all assigned Assessees for upcoming or ongoing assessments.</div>
+                <div class="sticky-note reveal">I need the ability to filter and sort this list by various criteria, such as Assessee name, role, assessment period, and completion status.</div>
+                <div class="sticky-note reveal">For each Assessee, I should be able to quickly access their basic information and relevant assessment details, including the assigned role and competency framework.</div>
+              </div>
+            </div>
+            <div class="sticky-group">
+              <p class="sticky-group-label">Conducting Assessments</p>
+              <div class="sticky-notes sticky-notes--salmon">
+                <div class="sticky-note reveal">Once I select an Assessee, I need a user-friendly interface to review their individual competencies and assign Proficiency Levels.</div>
+                <div class="sticky-note reveal">The interface should clearly display the competency group, competency title, competency description, and available Proficiency Levels with their corresponding attributes.</div>
+                <div class="sticky-note reveal">I need the ability to view detailed information about each attribute and Proficiency Level to guide my assessment decisions.</div>
+                <div class="sticky-note reveal">I should be able to provide optional feedback or comments for each competency, if desired.</div>
+              </div>
+            </div>
+            <div class="sticky-group">
+              <p class="sticky-group-label">Assessment Completion and Review</p>
+              <div class="sticky-notes sticky-notes--blue">
+                <div class="sticky-note reveal">Once I've completed an assessment for an Assessee, I need a clear way to submit it and confirm completion.</div>
+                <div class="sticky-note reveal">I should be able to review the submitted assessment at any time, including the assigned Proficiency Levels and any provided feedback.</div>
+                <div class="sticky-note reveal">I need the option to download the completed assessment as a formatted PDF for my records or future reference.</div>
+                <div class="sticky-note reveal">A clear overview of assigned Assessors for each Assessee would be helpful for tracking and communication purposes.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sticky-role">
+          <h3 class="sticky-role-label">Assessee</h3>
+          <div class="sticky-categories">
+            <div class="sticky-group">
+              <p class="sticky-group-label">Self-Assessment Participation</p>
+              <div class="sticky-notes sticky-notes--yellow">
+                <div class="sticky-note reveal">When the assessment period opens, I need a user-friendly interface to complete the self-assessment efficiently.</div>
+                <div class="sticky-note reveal">The interface should clearly present each competency and its corresponding Proficiency Levels with appropriate descriptions and attributes.</div>
+                <div class="sticky-note reveal">I should be able to easily reflect on my strengths and weaknesses and choose the most accurate Proficiency Level for each competency.</div>
+                <div class="sticky-note reveal">Optional space for providing additional comments or self-reflections would be valuable for personal development purposes.</div>
+              </div>
+            </div>
+            <div class="sticky-group">
+              <p class="sticky-group-label">Conducting Assessments</p>
+              <div class="sticky-notes sticky-notes--salmon">
+                <div class="sticky-note reveal">Once I submit the self-assessment, I should receive timely confirmation and access to my results.</div>
+                <div class="sticky-note reveal">The system should present my results in a clear and understandable format, highlighting my strengths, areas for improvement, and overall performance.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section class="case-block">
+    <div class="container">
+      <h2 class="case-block-title reveal">Core Pain Points</h2>
+
+      <div class="pain-grid">
+        <div class="pain-card reveal">
+          <div class="pain-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0112 20c-7 0-11-8-11-8a21.8 21.8 0 015.06-6.06M9.9 4.24A10.94 10.94 0 0112 4c7 0 11 8 11 8a21.77 21.77 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+          </div>
+          <h3>Lack of transparency</h3>
+          <p>Users struggled to access and understand assessment data, leading to confusion.</p>
+        </div>
+        <div class="pain-card reveal">
+          <div class="pain-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"></rect><rect x="14" y="3" width="7" height="7" rx="1.2"></rect><rect x="3" y="14" width="7" height="7" rx="1.2"></rect><rect x="14" y="14" width="7" height="7" rx="1.2"></rect></svg>
+          </div>
+          <h3>Use of third-party tools</h3>
+          <p>The organization relied on multiple third-party tools to manage assessments, forcing users to navigate between platforms and increasing complexity.</p>
+        </div>
+        <div class="pain-card reveal">
+          <div class="pain-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg>
+          </div>
+          <h3>Hard to manage multiple user data</h3>
+          <p>Managing multiple users' data was time-consuming and error-prone, resulting in data inconsistencies and inaccuracy.</p>
+        </div>
+        <div class="pain-card reveal">
+          <div class="pain-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </div>
+          <h3>No indication of performance</h3>
+          <p>Limited visibility into individual and organizational performance metrics made it difficult for stakeholders to assess progress and make informed decisions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION INTRO -->
+  <section class="case-block" id="solution">
+    <div class="container">
+      <h2 class="case-block-title reveal">Solution</h2>
+      <p class="case-block-text reveal">I started designing the Competency Assessment Tool by focusing on two core principles:</p>
+
+      <div class="principle-grid">
+        <div class="principle-card reveal">
+          <h3>User role-based interfaces</h3>
+          <p>Each user group — L&amp;D Admins, Assessors, or Assessees — sees only the functionality relevant to their role. The sidebar itself changes shape depending on who's signed in.</p>
+        </div>
+        <div class="principle-card reveal">
+          <h3>Simplified field-creation flows</h3>
+          <p>Creating new fields — whether for competency groups, roles, or assessment parameters — is broken into short, guided steps instead of one long form.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TASK FLOW -->
+  <section class="case-block">
+    <div class="container">
+      <h2 class="case-block-title reveal">Task Flow</h2>
+      <p class="case-block-text reveal">
+        The design went through multiple rounds of iteration where features were refined, interfaces
+        adjusted, and information visualization became more user-friendly. Here's a concrete walk-through
+        of the whole system connected end to end, with a small example team.
+      </p>
+
+      <div class="tf-scenario reveal">
+        <p class="tf-scenario-label">Scenario</p>
+        <p>
+          The L&amp;D Admin needs to initiate the assessment for the roles of <strong>UX Researcher</strong>
+          and <strong>Graphic Designer</strong>, both of which fall under the Assessee type of role. The
+          <strong>Design Lead</strong> will be the Assessor for both roles — let's say <strong>Ava</strong>
+          and <strong>John</strong> are the Design Leads, with the role already defined in the CAT system.
+        </p>
+        <p>4 Proficiency levels have already been defined in the system by the L&amp;D Admin:</p>
+        <div class="tf-scenario-levels">
+          <span class="tf-level-pill">Foundational <em>Weightage 1</em></span>
+          <span class="tf-level-pill">Proficient <em>Weightage 2</em></span>
+          <span class="tf-level-pill">Advanced <em>Weightage 3</em></span>
+          <span class="tf-level-pill">Outstanding <em>Weightage 4</em></span>
+        </div>
+      </div>
+
+      <div class="tf-diagram reveal">
+
+        <div class="tf-group">
+          <p class="tf-label">Creating Competency Group</p>
+          <div class="tf-chain-row">
+            <div class="tf-box reveal">L&amp;D Admin opens the CAT application, creates the Competency Group, and names it <strong>"Design Elements,"</strong> then selects the four proficiencies that have already been defined.</div>
+            <div class="tf-box reveal">For the Competency Group "Design Elements," the L&amp;D Admin creates four competencies and assigns the respective proficiencies: User Interview (Foundational, Proficient, Advanced), Quantitative Research (Foundational, Proficient), Color Theory (Advanced, Outstanding), Typography Concepts (Foundational, Proficient, Advanced).</div>
+          </div>
+        </div>
+
+        <div class="tf-group">
+          <p class="tf-label">Creating Roles</p>
+          <div class="tf-chain-row">
+            <div class="tf-box reveal">The L&amp;D Admin now creates the roles of <strong>UX Researcher</strong> and <strong>Graphic Designer</strong>, selecting the Assessee role type for both.</div>
+            <div class="tf-box reveal">For the UX Researcher role, the L&amp;D Admin selects the User Interview and Quantitative Research competencies from "Design Elements."</div>
+            <div class="tf-box reveal">For the Graphic Designer role, the L&amp;D Admin selects the Color Theory and Typography Concepts competencies from "Design Elements."</div>
+          </div>
+        </div>
+
+        <div class="tf-group">
+          <p class="tf-label">Role Mapping</p>
+          <div class="tf-chain">
+            <div class="tf-box reveal">In the Role Mapping section, the L&amp;D Admin maps the <strong>Design Lead</strong> role to both the UX Researcher and Graphic Designer roles — meaning users with the Design Lead role will serve as assessors for both.</div>
+          </div>
+        </div>
+
+        <div class="tf-group">
+          <p class="tf-label">Creating Users</p>
+          <div class="tf-chain">
+            <div class="tf-box reveal">L&amp;D Admin now creates two new users, <strong>Anna</strong> and <strong>Leo</strong>. Anna is assigned the role of UX Researcher and Leo is assigned the role of Graphic Designer.</div>
+          </div>
+        </div>
+
+        <div class="tf-group">
+          <p class="tf-label">Starting Surveys</p>
+          <div class="tf-chain">
+            <div class="tf-box reveal">Using the Survey function, the L&amp;D Admin initiates the survey for both the UX Researcher and Graphic Designer roles.</div>
+          </div>
+        </div>
+
+        <div class="tf-group">
+          <p class="tf-label">Assessments</p>
+          <div class="tf-chain-row">
+            <div class="tf-box reveal">In the Assessment feature, the L&amp;D Admin assigns <strong>Ava</strong> as the assessor for Anna and assigns <strong>John</strong> as the assessor for Leo. Then, the assessment process is started.</div>
+            <div class="tf-box reveal">Assessors Ava and John receive emails notifying them that they need to conduct assessments for Anna and Leo, respectively.</div>
+          </div>
+
+          <div class="tf-branch">
+            <div class="tf-branch-col">
+              <p class="tf-sublabel">Assessor</p>
+              <div class="tf-chain">
+                <div class="tf-box reveal">Ava opens the CAT application and navigates to the Assessment tab, where Anna's assessment is listed as pending. Ava selects Anna's profile and initiates the assessment.</div>
+                <div class="tf-box reveal">Ava selects the actual proficiency levels for each competency: <strong>Advanced</strong> for User Interview, <strong>Foundational</strong> for Quantitative Research.</div>
+                <div class="tf-box reveal">Anna receives a weightage of 3 for User Interview and 1 for Quantitative Research.</div>
+                <div class="tf-box reveal">Similarly, John completes the assessment of Leo.</div>
+              </div>
+            </div>
+            <div class="tf-branch-col">
+              <p class="tf-sublabel">Assessee</p>
+              <div class="tf-chain">
+                <div class="tf-box reveal">Anna opens the CAT application and navigates to the Assessment tab, where her self-assessment is listed as pending. Anna starts her self-assessment.</div>
+                <div class="tf-box reveal">Anna selects the actual proficiency levels for each competency — <strong>Proficient</strong> for both User Interview and Quantitative Research.</div>
+                <div class="tf-box reveal">Anna receives a weightage of 2 for both competencies in her self-assessment.</div>
+                <div class="tf-box reveal">Similarly, Leo completes his self-assessment.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tf-group">
+          <p class="tf-label">Dashboard</p>
+          <div class="tf-chain">
+            <div class="tf-box reveal">Once the assessments are completed, the L&amp;D Admin views the assessment scores of Anna and Leo on the Dashboard feature, with access to various graphical visuals to analyze the scores.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN WALKTHROUGH -->
+  <section class="case-block">
+    <div class="container">
+      <p class="eyebrow reveal">Inside the tool</p>
+      <h2 class="section-title reveal" style="margin-bottom:8px;">A walk through every screen</h2>
+      <p class="case-block-text reveal" style="margin-bottom:8px;">Five flows, from setting up competencies to reviewing results on the dashboard.</p>
+
+      <!-- 1. Competency Group -->
+      <div class="screen-block">
+        <div class="screen-copy reveal">
+          <div class="screen-index">L&amp;D ADMIN · 01</div>
+          <h3>Competency Group</h3>
+          <p>The Competency Group list shows every group with its ID, description and linked competencies, with a single <strong>Create</strong> button to start a new one.</p>
+          <p>Creation now lives on one screen: group details on the left, with each competency's attributes built up on the right against the Proficiency Levels chosen for that group — no multi-step wizard to click through.</p>
+        </div>
+        <div class="wf-frame-wrap">
+          <div class="wf-frame-multi">
+            <div class="wf-frame reveal">
+              <img src="assets/img/cat/competency-group-list.png" alt="Competency Group list view" loading="lazy">
+              <p class="wf-caption">List view</p>
+            </div>
+            <div class="wf-frame reveal">
+              <img src="assets/img/cat/competency-group-create.png" alt="Create Competency Group screen" loading="lazy">
+              <p class="wf-caption">Create Competency Group</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Role -->
+      <div class="screen-block">
+        <div class="screen-copy reveal">
+          <div class="screen-index">L&amp;D ADMIN · 02</div>
+          <h3>Role</h3>
+          <p>Creating a Role is a single screen too: role details on the left, and every competency from the selected Competency Groups on the right, ready to check off and assign an Expected Level to — no separate steps for details, groups and competencies.</p>
+        </div>
+        <div class="wf-frame-wrap">
+          <div class="wf-frame reveal">
+            <img src="assets/img/cat/role-create.png" alt="Create Role screen" loading="lazy">
+            <p class="wf-caption">Create Role</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Role Mapping -->
+      <div class="screen-block">
+        <div class="screen-copy reveal">
+          <div class="screen-index">L&amp;D ADMIN · 03</div>
+          <h3>Role Mapping</h3>
+          <p>Role Mapping reveals which Assessor roles are responsible for assessing which Assessee roles. A new mapping expands right at the top of the list — pick the Assessee role, then attach one or more Assessor roles, marking any of them as mandatory.</p>
+        </div>
+        <div class="wf-frame-wrap">
+          <div class="wf-frame reveal">
+            <img src="assets/img/cat/role-mapping.png" alt="Role Mapping screen" loading="lazy">
+            <p class="wf-caption">List &amp; create mapping</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Assessments -->
+      <div class="screen-block">
+        <div class="screen-copy reveal">
+          <div class="screen-index">L&amp;D ADMIN · 04</div>
+          <h3>Assessments</h3>
+          <p>Assessments move through five statuses — Verification Pending, Verified, Assessment Initiated, Completed and Expired. Under <strong>Verification Pending</strong>, the admin links an Assessor to each Assessee before the pairing can move forward.</p>
+        </div>
+        <div class="wf-frame-wrap">
+          <div class="wf-frame reveal">
+            <img src="assets/img/cat/assessments-pending.png" alt="Assessments verification pending tab" loading="lazy">
+            <p class="wf-caption">Verification pending</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Assessment Survey -->
+      <div class="screen-block">
+        <div class="screen-copy reveal">
+          <div class="screen-index">ASSESSOR · 05</div>
+          <h3>Assessment Survey</h3>
+          <p>Signed in as an Assessor, the sidebar shrinks to just Dashboard, Assessments and Self Assessments. Opening an assessment brings up the Assessment Survey — every assigned Assessee laid out side by side, grouped by Competency Group, with a dropdown to rate each competency against its expected level and a comment icon for feedback.</p>
+        </div>
+        <div class="wf-frame-wrap">
+          <div class="wf-frame reveal">
+            <img src="assets/img/cat/assessment-survey.png" alt="Assessment Survey screen, viewed as an Assessor" loading="lazy">
+            <p class="wf-caption">Assessment Survey</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Dashboard -->
+      <div class="screen-block">
+        <div class="screen-copy reveal">
+          <div class="screen-index">L&amp;D ADMIN · 06</div>
+          <h3>Dashboard</h3>
+          <p>The Dashboard is the main control hub — a one-stop place for reporting across four tabs: Overview, Competency Analysis, Role Analysis, and Assessee Report. From here, L&amp;D Admins check completion rates, review average scores, spot competency gaps by role, and drill into any individual's strengths and weaknesses.</p>
+        </div>
+        <div class="wf-frame-wrap">
+          <div class="wf-frame reveal">
+            <img src="assets/img/cat/dashboard.png" alt="Dashboard overview screen" loading="lazy">
+            <p class="wf-caption">Overview tab</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="case-block-text reveal" style="margin-top:48px; font-size:0.9rem; color:var(--text-faint);">
+        This case study offers a brief look at the key elements of my work, keeping in mind the limits
+        of screen space — there are many more screens and interactions, such as the Dashboard's other
+        three tabs, that aren't included here.
+      </p>
+    </div>
+  </section>
+
+  <!-- FINAL CONCEPT -->
+  <section class="case-block">
+    <div class="container">
+      <h2 class="case-block-title reveal">Final Concept</h2>
+      <div class="final-banner reveal">
+        <p>To prioritize a seamless experience for all user roles, I focused on consistency across the L&amp;D Admin, Assessor, and Assessee interfaces — keeping every screen familiar and minimizing the learning curve, no matter who's signed in.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORE OTHER WORK -->
+  <section class="section" id="explore">
+    <div class="container">
+      <p class="eyebrow reveal">Explore Other Work</p>
+      <h2 class="section-title reveal">More case studies</h2>
+
+      <div class="project-grid" style="margin-top:32px;">
+        <article class="project-card reveal">
+          <div class="project-card-top">
+            <span class="tag">Interaction Design</span>
+            <span class="tag">UI Design</span>
+          </div>
+          <h3>Bridging Imagination and Tech to Elevate Learning</h3>
+          <p>Designed the seamless integration of AI and Augmented Reality into a mobile-friendly learning experience.</p>
+          <a href="https://rahulbhure.framer.website/prayog" target="_blank" rel="noopener noreferrer" class="link-arrow">
+            View Case
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-card-top">
+            <span class="tag">Prototyping</span>
+            <span class="tag">UX Research</span>
+          </div>
+          <h3>Redesigning the User Experience of eQ-TM</h3>
+          <p>Improved usability of the eQ Technologies canvas, keeping design-system constraints and cross-product consistency intact.</p>
+          <a href="https://rahulbhure.framer.website/eQ" target="_blank" rel="noopener noreferrer" class="link-arrow">
+            View Case
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-card-top">
+            <span class="tag">Product Design</span>
+            <span class="tag">Heuristic Evaluation</span>
+          </div>
+          <h3>Redesigning the IT Ticket Raising Experience</h3>
+          <p>Designed a mobile app from scratch that streamlines the IT ticket-raising experience — now used by 110,000+ employees.</p>
+          <a href="case-study-epa.html" class="link-arrow">
+            View Case
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-card reveal">
+        <p class="eyebrow">Contact</p>
+        <h2 class="contact-title">Let's build something great.</h2>
+        <p class="contact-sub">Have a project in mind, or just want to say hi? My inbox is always open.</p>
+        <div class="hero-cta contact-cta">
+          <a href="mailto:rwbhure07@gmail.com" class="btn btn-glow">
+            Email Me
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="index.html#work" class="btn btn-ghost">Back to Portfolio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-orb brand-orb--sm"></span>
+      <span class="brand-name">Rahul Bhure</span>
+    </a>
+    <p class="footer-copy">© 2026 Rahul Bhure. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://rahulbhure.framer.website/CAT" target="_blank" rel="noopener noreferrer">Original Case Study</a>
+      <a href="https://www.linkedin.com/in/rahul-bhure-147a86206" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:rwbhure07@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
