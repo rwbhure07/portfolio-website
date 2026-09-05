@@ -154,6 +154,38 @@
     }
   }
 
+  /* Design Gallery: 3D card fan. The 6 cards keep their fixed positions
+     around the ring (set in CSS via --gi); moving the cursor over the
+     stage tilts the whole ring as one rigid group around its shared
+     center point, easing back to the idle tilt on mouse-leave. Also
+     clones the same cards into a plain horizontal-scroll row for touch
+     devices, where a hover-tilt effect has nothing to respond to. */
+  var galleryStage = document.getElementById("galleryStage");
+  var galleryRing = document.getElementById("galleryRing");
+  if (galleryStage && galleryRing) {
+    var idleTilt = "rotateX(9deg) rotateY(0deg)";
+    galleryRing.style.transform = idleTilt;
+    galleryStage.addEventListener("mousemove", function (e) {
+      var rect = galleryStage.getBoundingClientRect();
+      var px = (e.clientX - rect.left) / rect.width - 0.5;
+      var py = (e.clientY - rect.top) / rect.height - 0.5;
+      var rotY = px * 50;
+      var rotX = 9 - py * 26;
+      galleryRing.style.transform = "rotateX(" + rotX + "deg) rotateY(" + rotY + "deg)";
+    });
+    galleryStage.addEventListener("mouseleave", function () {
+      galleryRing.style.transform = idleTilt;
+    });
+  }
+  var galleryMobileRow = document.getElementById("galleryMobileRow");
+  if (galleryMobileRow && galleryRing) {
+    galleryRing.querySelectorAll(".gallery-card").forEach(function (card) {
+      var clone = card.cloneNode(true);
+      clone.style.transform = "";
+      galleryMobileRow.appendChild(clone);
+    });
+  }
+
   /* Org chart connector spine: align the vertical dashed line to the
      exact vertical center of the first and last row's branch point,
      instead of a rough percentage guess that overshoots past the
