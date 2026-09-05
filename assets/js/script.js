@@ -154,28 +154,79 @@
     }
   }
 
-  /* Design Gallery: 3D card fan. The 6 cards keep their fixed positions
-     around the ring (set in CSS via --gi); moving the cursor over the
-     stage tilts the whole ring as one rigid group around its shared
-     center point, easing back to the idle tilt on mouse-leave. Also
-     clones the same cards into a plain horizontal-scroll row for touch
-     devices, where a hover-tilt effect has nothing to respond to. */
+  /* Design Gallery: 3D card fan. The 6 cards are purely decorative (no
+     links) and keep their fixed positions around the ring (set in CSS
+     via --gi); the ring itself spins as one rigid group around its
+     shared center point, driven by three inputs that add together:
+       1. Scroll (Y axis): how far the stage has travelled through the
+          viewport maps to a rotation angle, so scrolling past this
+          section spins it.
+       2. Drag (Y axis): click-and-hold plus horizontal mouse movement
+          adds a manual spin on top, released when the mouse comes up.
+       3. Cursor hover (X and Z axes): passively follows the cursor
+          position over the stage with a low sensitivity, so it reads
+          as a gentle tilt rather than the primary motion. */
   var galleryStage = document.getElementById("galleryStage");
   var galleryRing = document.getElementById("galleryRing");
   if (galleryStage && galleryRing) {
-    var idleTilt = "rotateX(9deg) rotateY(0deg)";
-    galleryRing.style.transform = idleTilt;
+    var IDLE_TILT = 9;
+    var scrollRotation = 0;
+    var dragRotation = 0;
+    var cursorTiltX = 0;
+    var cursorTiltZ = 0;
+    var isDragging = false;
+    var dragStartX = 0;
+    var dragStartRotation = 0;
+
+    var applyRotation = function () {
+      galleryRing.style.transform =
+        "scale(0.5) " +
+        "rotateX(" + (IDLE_TILT + cursorTiltX) + "deg) " +
+        "rotateY(" + (scrollRotation + dragRotation) + "deg) " +
+        "rotateZ(" + cursorTiltZ + "deg)";
+    };
+
+    var updateScrollRotation = function () {
+      var rect = galleryStage.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var total = rect.height + vh;
+      var progress = (vh - rect.top) / total;
+      progress = Math.min(Math.max(progress, 0), 1);
+      scrollRotation = progress * 220;
+      applyRotation();
+    };
+    document.addEventListener("scroll", updateScrollRotation, { passive: true });
+    updateScrollRotation();
+
     galleryStage.addEventListener("mousemove", function (e) {
       var rect = galleryStage.getBoundingClientRect();
       var px = (e.clientX - rect.left) / rect.width - 0.5;
       var py = (e.clientY - rect.top) / rect.height - 0.5;
-      var rotY = px * 50;
-      var rotX = 9 - py * 26;
-      galleryRing.style.transform = "rotateX(" + rotX + "deg) rotateY(" + rotY + "deg)";
+      cursorTiltX = -py * 18;
+      cursorTiltZ = px * 8;
+      applyRotation();
     });
-    galleryStage.addEventListener("mouseleave", function () {
-      galleryRing.style.transform = idleTilt;
+    var endDrag = function () {
+      if (!isDragging) return;
+      isDragging = false;
+      galleryStage.classList.remove("is-dragging");
+    };
+
+    galleryStage.addEventListener("mousedown", function (e) {
+      isDragging = true;
+      dragStartX = e.clientX;
+      dragStartRotation = dragRotation;
+      galleryStage.classList.add("is-dragging");
+      e.preventDefault();
     });
+    window.addEventListener("mousemove", function (e) {
+      if (!isDragging) return;
+      var dx = e.clientX - dragStartX;
+      dragRotation = dragStartRotation + dx * 0.35;
+      applyRotation();
+    });
+    window.addEventListener("mouseup", endDrag);
+    galleryStage.addEventListener("mouseleave", endDrag);
   }
   var galleryMobileRow = document.getElementById("galleryMobileRow");
   if (galleryMobileRow && galleryRing) {

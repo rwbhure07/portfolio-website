@@ -462,84 +462,48 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
 .gallery-section { padding-bottom: 60px; }
 .gallery-3d-stage {
   margin-top: 64px;
-  height: 520px;
+  height: 460px;
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 1700px;
+  perspective: 3400px;
+  cursor: grab;
 }
+.gallery-3d-stage.is-dragging { cursor: grabbing; }
 .gallery-3d-ring {
+  /* Rendered at 2x scale then scaled back down (see the leading scale(0.5)
+     applied alongside the rotation in script.js) so each card's texture is
+     rasterized at higher resolution before the perspective foreshortening
+     enlarges it — a card scaled 320x216 -> ~400x270 via translateZ was
+     visibly softer than a flat image at the same size, because the browser
+     was upscaling a 320x216-resolution layer rather than sampling from the
+     full-resolution source. */
   position: relative;
-  width: 230px;
-  height: 300px;
+  width: 640px;
+  height: 432px;
   transform-style: preserve-3d;
-  transform: rotateX(9deg) rotateY(0deg);
-  transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.32, 1);
+  transform: scale(0.5) rotateX(9deg) rotateY(0deg);
   will-change: transform;
 }
 .gallery-card {
   position: absolute;
   inset: 0;
   display: block;
-  border-radius: 20px;
+  border-radius: 32px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.14);
-  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
-  transform: rotateY(calc(var(--gi) * 60deg)) translateZ(320px);
+  border: 2px solid rgba(255,255,255,0.14);
+  box-shadow: 0 60px 120px -40px rgba(0,0,0,0.6);
+  transform: rotateY(calc(var(--gi) * 60deg)) translateZ(680px);
   text-decoration: none;
+  -webkit-user-drag: none;
 }
-.gallery-card-bg { position: absolute; inset: 0; }
-.gallery-card-bg--purple { background: radial-gradient(circle at 30% 18%, #c084fc, #4c1d95 68%, #24123f 100%); }
-.gallery-card-bg--amber { background: radial-gradient(circle at 70% 78%, #fcd34d, #92400e 68%, #2b1305 100%); }
-.gallery-card-bg--navy { background: radial-gradient(circle at 30% 75%, #3b5bdb, #10163a 68%, #05070f 100%); }
-.gallery-card-bg--teal { background: radial-gradient(circle at 72% 22%, #5eead4, #0f766e 68%, #062421 100%); }
-.gallery-card-bg--mint { background: radial-gradient(circle at 28% 30%, #99f6e4, #0d9488 68%, #052b28 100%); }
-.gallery-card-bg--sky { background: radial-gradient(circle at 68% 68%, #dbeafe, #2563eb 68%, #0b1330 100%); }
-.gallery-card-mock {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 78%;
-  transform: translate(-50%, -50%) rotate(-4deg);
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.35);
-  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.55);
-}
-.gallery-card-mock img { display: block; width: 100%; }
-.gallery-card-mock--doc { background: #fff; }
-.gallery-card-mock--confidential {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  color: rgba(255,255,255,0.75);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.gallery-card-label {
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(8,6,14,0.55);
-  border: 1px solid rgba(255,255,255,0.14);
-  backdrop-filter: blur(6px);
-  font-size: 0.74rem;
-  font-weight: 600;
-  color: #fff;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.gallery-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
 @media (max-width: 860px) {
   .gallery-3d-stage { display: none; }
@@ -554,8 +518,8 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   .gallery-mobile-row .gallery-card {
     position: relative;
     inset: auto;
-    flex: 0 0 200px;
-    height: 260px;
+    flex: 0 0 260px;
+    height: 176px;
     scroll-snap-align: center;
     transform: none;
   }
