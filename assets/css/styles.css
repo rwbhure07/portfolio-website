@@ -260,10 +260,20 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 20px;
+  /* Mirrors .container's own width/centering/padding exactly, so a
+     left-aligned child (the collapsed case-study "Home" pill) lines up
+     with the page's text column at every viewport width — not just below
+     .container's max-width, where a plain fixed left-edge would drift out
+     of alignment once .container starts centering itself with its own
+     side margins. */
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 28px;
 }
 
 .navbar {
+  position: relative;
   width: 100%;
   max-width: 880px;
   display: flex;
@@ -276,11 +286,64 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   border: 1px solid var(--border);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  transition: background .3s var(--ease), border-color .3s var(--ease);
+  overflow: hidden;
+  transition: background .3s var(--ease), border-color .3s var(--ease),
+              max-width .4s var(--ease), padding .4s var(--ease), height .4s var(--ease);
 }
 .navbar.is-scrolled {
   background: rgba(15,12,24,0.88);
   border-color: var(--border-strong);
+}
+
+/* Case-study pages only: once scrolled, the full navbar crossfades down to
+   a single left-aligned "Home" link back to the landing page, instead of
+   showing the same in-page section links a case study doesn't have. Both
+   states are absolutely/normally layered on top of each other and faded
+   via opacity (rather than display swaps) so the swap animates, and the
+   pill's own max-width animates alongside it so the box visibly shrinks
+   to hug the remaining content. */
+.navbar-expanded {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  transition: opacity .25s var(--ease);
+}
+.navbar-home-link {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s var(--ease), color .25s var(--ease);
+}
+.navbar-home-link:hover { color: var(--text); }
+.navbar--collapsible.is-scrolled .navbar-home-link {
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: .12s;
+}
+.navbar--collapsible.is-scrolled .navbar-expanded {
+  opacity: 0;
+  pointer-events: none;
+}
+.navbar--collapsible {
+  height: 64px;
+}
+.navbar--collapsible.is-scrolled {
+  max-width: 150px;
+  height: 42px;
+  align-self: flex-start;
+  padding: 0 20px;
 }
 
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 0.98rem; }
@@ -359,9 +422,9 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 4.4rem);
+  font-size: clamp(1.8rem, 4vw, 2.9rem);
   font-weight: 800;
-  line-height: 1.08;
+  line-height: 1.12;
   letter-spacing: -0.02em;
   margin: 26px 0 22px;
 }
