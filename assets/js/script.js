@@ -170,7 +170,9 @@
   var galleryRing = document.getElementById("galleryRing");
   if (galleryStage && galleryRing) {
     var IDLE_TILT = 9;
+    var SCROLL_TILT_X_MAX = 15;
     var scrollRotation = 0;
+    var scrollTiltX = 0;
     var dragRotation = 0;
     var cursorTiltX = 0;
     var cursorTiltZ = 0;
@@ -181,7 +183,7 @@
     var applyRotation = function () {
       galleryRing.style.transform =
         "scale(0.5) " +
-        "rotateX(" + (IDLE_TILT + cursorTiltX) + "deg) " +
+        "rotateX(" + (IDLE_TILT + scrollTiltX + cursorTiltX) + "deg) " +
         "rotateY(" + (scrollRotation + dragRotation) + "deg) " +
         "rotateZ(" + cursorTiltZ + "deg)";
     };
@@ -193,6 +195,7 @@
       var progress = (vh - rect.top) / total;
       progress = Math.min(Math.max(progress, 0), 1);
       scrollRotation = progress * 220;
+      scrollTiltX = -progress * SCROLL_TILT_X_MAX;
       applyRotation();
     };
     document.addEventListener("scroll", updateScrollRotation, { passive: true });

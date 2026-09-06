@@ -466,7 +466,7 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 3400px;
+  perspective: 3638px;
   cursor: grab;
 }
 .gallery-3d-stage.is-dragging { cursor: grabbing; }
@@ -477,10 +477,12 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
      enlarges it — a card scaled 320x216 -> ~400x270 via translateZ was
      visibly softer than a flat image at the same size, because the browser
      was upscaling a 320x216-resolution layer rather than sampling from the
-     full-resolution source. */
+     full-resolution source. Card size and fan spacing are 7% larger than
+     that 2x baseline (685/462/728 vs. 640/432/680) — scaled up together
+     with perspective so the fan reads bigger without changing its shape. */
   position: relative;
-  width: 640px;
-  height: 432px;
+  width: 685px;
+  height: 462px;
   transform-style: preserve-3d;
   transform: scale(0.5) rotateX(9deg) rotateY(0deg);
   will-change: transform;
@@ -489,11 +491,11 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   position: absolute;
   inset: 0;
   display: block;
-  border-radius: 32px;
+  border-radius: 34px;
   overflow: hidden;
   border: 2px solid rgba(255,255,255,0.14);
   box-shadow: 0 60px 120px -40px rgba(0,0,0,0.6);
-  transform: rotateY(calc(var(--gi) * 60deg)) translateZ(680px);
+  transform: rotateY(calc(var(--gi) * 60deg)) translateZ(728px);
   text-decoration: none;
   -webkit-user-drag: none;
 }
