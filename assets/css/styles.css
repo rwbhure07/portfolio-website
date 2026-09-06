@@ -285,12 +285,11 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
 
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 0.98rem; }
 .brand-orb {
-  width: 26px; height: 26px; border-radius: 50%;
-  background: url("../img/avatar-3d.svg") center/cover no-repeat;
-  box-shadow: 0 0 14px rgba(168,85,247,0.7);
+  width: 39px; height: 18px;
+  background: url("../img/signature-rb-transparent.png") center/contain no-repeat;
   flex-shrink: 0;
 }
-.brand-orb--sm { width: 20px; height: 20px; }
+.brand-orb--sm { width: 30px; height: 14px; }
 
 .nav-links { display: flex; align-items: center; gap: 30px; }
 .nav-link {
