@@ -286,7 +286,7 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 0.98rem; }
 .brand-orb {
   width: 26px; height: 26px; border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #E9D5FF, #A855F7 45%, #6D28D9 100%);
+  background: url("../img/avatar-3d.svg") center/cover no-repeat;
   box-shadow: 0 0 14px rgba(168,85,247,0.7);
   flex-shrink: 0;
 }
