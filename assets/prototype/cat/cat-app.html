@@ -398,10 +398,14 @@
   .assess-table tbody tr:last-child td { border-bottom: none; }
   .assess-table tbody tr:hover { background: var(--color-bg); }
   .assess-table tbody tr.is-selected { background: var(--color-accent-tint-bg); }
+  .assess-table .col-checkbox .row-checkbox { opacity: 0; transition: opacity .12s ease; }
+  .assess-table thead tr:hover .col-checkbox .row-checkbox,
+  .assess-table tbody tr:hover .col-checkbox .row-checkbox,
+  .assess-table .col-checkbox .row-checkbox.is-checked { opacity: 1; }
   .cell-primary { font-weight: 700; }
   .cell-secondary { font-size: var(--fs-small); color: var(--color-text-tertiary); margin-top: 2px; }
   .assessor-select-row { display: flex; align-items: center; gap: var(--space-3); }
-  .assessor-select { height: 34px; padding: 0 10px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: var(--fs-small); color: var(--color-text-primary); background: var(--color-card); max-width: 170px; }
+  .assessor-select { height: 34px; padding: 0 10px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: var(--fs-small); color: var(--color-text-primary); background: var(--color-card); width: 164px; flex: none; }
   .assessor-role-tag { font-size: var(--fs-body); color: var(--color-text-secondary); white-space: nowrap; }
 
   /* ============================================================
@@ -1003,7 +1007,7 @@ PAGE_HTML.assessments = `
         <span class="records-per-page-label">Records Per Page</span>
         <select class="select-input">
           <option>5</option>
-          <option>10</option>
+          <option selected>10</option>
           <option>25</option>
           <option>50</option>
         </select>
@@ -1014,7 +1018,7 @@ PAGE_HTML.assessments = `
       <div class="table-head-wrap">
         <table class="assess-table">
           <colgroup>
-            <col style="width:4%"><col style="width:12%"><col style="width:13%"><col style="width:27%"><col style="width:26%"><col style="width:18%">
+            <col style="width:4%"><col style="width:12%"><col style="width:13%"><col style="width:21%"><col style="width:32%"><col style="width:18%">
           </colgroup>
           <thead>
             <tr>
@@ -1035,7 +1039,7 @@ PAGE_HTML.assessments = `
       <div class="table-wrap">
         <table class="assess-table">
           <colgroup>
-            <col style="width:4%"><col style="width:12%"><col style="width:13%"><col style="width:27%"><col style="width:26%"><col style="width:18%">
+            <col style="width:4%"><col style="width:12%"><col style="width:13%"><col style="width:21%"><col style="width:32%"><col style="width:18%">
           </colgroup>
           <tbody id="table-body"></tbody>
         </table>
@@ -1053,7 +1057,6 @@ PAGE_HTML.assessments = `
       <button class="page-btn is-active">1</button>
       <button class="page-btn">2</button>
       <button class="page-btn">3</button>
-      <button class="page-btn">4</button>
       <button class="page-btn page-btn-nav">
         Next
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
