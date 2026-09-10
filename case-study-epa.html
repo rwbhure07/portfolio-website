@@ -127,21 +127,16 @@
       <h2 class="case-block-title reveal">Research</h2>
       <p class="case-block-text reveal">
         To understand the existing ticket-raising journey end to end, I raised several tickets myself
-        through ServiceNow and mapped the pains and gains into a Customer Journey Map. That map
-        shaped the questions I brought into interviews with <strong>4 end users and 2 admins</strong>,
-        surfacing behavior patterns around what motivated — and blocked — people from raising a ticket.
+        through ServiceNow and mapped the pains and gains into a Customer Journey Map — the foundation
+        the interview questions were built on.
       </p>
 
       <div class="tf-scenario reveal" style="margin-top:24px;">
-        <p class="tf-scenario-label">Definition</p>
+        <p class="tf-scenario-label">Target user — End user</p>
         <p>
           An <strong>end user</strong> here is any Blue Harbor employee trying to fulfill an IT request —
-          across departments, roles, and technical comfort levels. Quotes from the interviews were
-          clustered through several rounds of synthesis to surface the real problem areas.
+          across departments, roles, and technical comfort levels.
         </p>
-      </div>
-      <div class="screen-frame-wrap reveal" style="margin-top:28px; max-width:640px;">
-        <img src="assets/img/epa/data-synthesis.png" alt="Data synthesis clustering of interview findings" style="width:100%; border-radius:12px; border:1px solid var(--border-strong);">
       </div>
     </div>
   </section>
@@ -151,11 +146,83 @@
     <div class="container">
       <h2 class="case-block-title reveal">Interview</h2>
       <p class="case-block-text reveal">
-        Interviews with <strong>4 end users and 2 admins</strong> were conducted to find out the peaks
-        and pits in the experience of raising a ticket through the existing web portal (ServiceNow).
-        The interviews were also used to uncover behavior patterns around ticket raising — what
-        motivated people, and what held them back.
+        Interviews were conducted to find out the peaks and pits in the experience of raising a ticket
+        through the existing web portal (ServiceNow), and to uncover behavior patterns around ticket
+        raising — what motivated people, and what held them back.
       </p>
+      <div class="point-grid" style="grid-template-columns:repeat(2,1fr); margin-top:24px;">
+        <div class="point-card reveal">
+          <div class="point-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87"></path><path d="M16 3.13a4 4 0 010 7.75"></path></svg></div>
+          <p><strong style="color:var(--text); font-size:1.6rem; display:block; line-height:1;">4</strong>End users interviewed, across departments and technical comfort levels.</p>
+        </div>
+        <div class="point-card reveal">
+          <div class="point-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 6L9 17.5 3.5 12"></path><circle cx="12" cy="12" r="10"></circle></svg></div>
+          <p><strong style="color:var(--text); font-size:1.6rem; display:block; line-height:1;">2</strong>Admins interviewed, who fulfil and route tickets day to day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA SYNTHESIS -->
+  <section class="case-block">
+    <div class="container">
+      <h2 class="case-block-title reveal">Data Synthesis</h2>
+      <p class="case-block-text reveal">
+        Quotes from the interviews were mapped into clusters. Several rounds of clustering surfaced
+        the problem areas below.
+      </p>
+
+      <div class="sticky-board">
+        <div class="sticky-role">
+          <div class="sticky-categories">
+            <div class="sticky-group">
+              <p class="sticky-group-label">Form Filling</p>
+              <div class="sticky-notes sticky-notes--yellow">
+                <div class="sticky-note reveal">Repeated information needs to be filled in while raising different tickets.</div>
+                <div class="sticky-note reveal">Some of the entries are difficult to understand.</div>
+                <div class="sticky-note reveal">The form-filling process is very time consuming.</div>
+              </div>
+            </div>
+            <div class="sticky-group">
+              <p class="sticky-group-label">Ticket Tracking</p>
+              <div class="sticky-notes sticky-notes--salmon">
+                <div class="sticky-note reveal">Difficulty in tracking the status of a raised ticket.</div>
+                <div class="sticky-note reveal">There is no categorization present while tracking a ticket.</div>
+                <div class="sticky-note reveal">The overall view of the tickets is not there.</div>
+                <div class="sticky-note reveal">Receiving multiple emails for a single ticket.</div>
+              </div>
+            </div>
+            <div class="sticky-group">
+              <p class="sticky-group-label">Ticket Raising</p>
+              <div class="sticky-notes sticky-notes--blue">
+                <div class="sticky-note reveal">No priority is given to important tickets — you have to find it the same way as one that's of no use.</div>
+                <div class="sticky-note reveal">Lot of confusion between "Order Something" and "Report an Issue."</div>
+                <div class="sticky-note reveal">It takes a lot of steps to raise a ticket — raising several at once means wasting hours on it.</div>
+                <div class="sticky-note reveal">The search doesn't return valid results if the ticket name is misspelled.</div>
+                <div class="sticky-note reveal">Some of the inputs on the form are difficult to understand.</div>
+              </div>
+            </div>
+            <div class="sticky-group">
+              <p class="sticky-group-label">Admin</p>
+              <div class="sticky-notes sticky-notes--gray">
+                <div class="sticky-note reveal">The support team may not always grasp the user's problem, which delays routing the ticket to the right team.</div>
+                <div class="sticky-note reveal">Sometimes users raise a ticket directly without reading its details.</div>
+                <div class="sticky-note reveal">Users rarely check whether they can resolve the issue themselves — most raise a ticket as soon as they hit it.</div>
+                <div class="sticky-note reveal">End users don't fill the form properly, which creates confusion while resolving the ticket.</div>
+              </div>
+            </div>
+            <div class="sticky-group">
+              <p class="sticky-group-label">Lack of Knowledge</p>
+              <div class="sticky-notes sticky-notes--green">
+                <div class="sticky-note reveal">No clear categorization between "Order Something" and "Raise an Issue."</div>
+                <div class="sticky-note reveal">Communicating difficulties and needs to the support team is very difficult.</div>
+                <div class="sticky-note reveal">There's no guide to help select the right ticket for an issue.</div>
+                <div class="sticky-note reveal">Tickets get raised even when the wrong one is selected.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -184,11 +251,10 @@
           <h3>Many issues were self-resolvable</h3>
           <p>Most tickets could have been fixed by the user in a few steps — but with no guidance, they raised a ticket instead.</p>
         </div>
-      </div>
-      <div class="upcoming reveal">
-        <p class="upcoming-label">Also common</p>
-        <div class="upcoming-list">
-          <div class="upcoming-item"><span class="pulse-dot"></span><span>Users frequently raised the wrong category of ticket after too many steps on ServiceNow.</span></div>
+        <div class="pain-card reveal">
+          <div class="pain-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16"></path><path d="M4 20L20 4"></path><circle cx="12" cy="12" r="10"></circle></svg></div>
+          <h3>Wrong category, wrong ticket</h3>
+          <p>Users frequently raised the wrong category of ticket after too many steps on ServiceNow.</p>
         </div>
       </div>
     </div>
@@ -199,31 +265,41 @@
     <div class="container">
       <h2 class="case-block-title reveal">Towards Solution</h2>
       <p class="case-block-text reveal">Defining the design goals and structuring a solution — five goals shaped every screen that followed.</p>
-      <div class="term-grid" style="grid-template-columns:repeat(3,1fr);">
-        <div class="term-card reveal">
-          <div class="term-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
-          <h3>Discoverability</h3>
+      <div class="solution-goals">
+        <div class="solution-goal solution-goal--teal reveal">
+          <div class="solution-goal-head">
+            <h3>Discoverability</h3>
+            <div class="solution-goal-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+          </div>
           <p>Search, intuitive navigation and organized content get employees to the right ticket quickly.</p>
         </div>
-        <div class="term-card reveal">
-          <div class="term-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path></svg></div>
-          <h3>Affordance</h3>
+        <div class="solution-goal solution-goal--coral reveal">
+          <div class="solution-goal-head">
+            <h3>Affordance</h3>
+            <div class="solution-goal-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path></svg></div>
+          </div>
           <p>Quick access to Raised Tickets, My Approvals and Order Something is obvious, not hidden.</p>
         </div>
-        <div class="term-card reveal">
-          <div class="term-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-1a8 8 0 0116 0v1"></path></svg></div>
-          <h3>Personalization</h3>
+        <div class="solution-goal solution-goal--cyan reveal">
+          <div class="solution-goal-head">
+            <h3>Playful</h3>
+            <div class="solution-goal-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"></path></svg></div>
+          </div>
+          <p>Interactive widgets and small playful touches keep employees engaged with the app.</p>
+        </div>
+        <div class="solution-goal solution-goal--red reveal">
+          <div class="solution-goal-head">
+            <h3>Personalization</h3>
+            <div class="solution-goal-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-1a8 8 0 0116 0v1"></path></svg></div>
+          </div>
           <p>The app adapts to individual roles and preferences, surfacing what's relevant to that person.</p>
         </div>
-        <div class="term-card reveal">
-          <div class="term-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg></div>
-          <h3>Ease of use</h3>
+        <div class="solution-goal solution-goal--blue reveal">
+          <div class="solution-goal-head">
+            <h3>Ease of use</h3>
+            <div class="solution-goal-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg></div>
+          </div>
           <p>Discoverability and affordance only matter if employees can act on them with minimal effort.</p>
-        </div>
-        <div class="term-card reveal">
-          <div class="term-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"></path></svg></div>
-          <h3>Playful</h3>
-          <p>Interactive widgets and small playful touches keep employees engaged with the app.</p>
         </div>
       </div>
     </div>
@@ -237,7 +313,7 @@
         Several rounds of design were shared with stakeholders, who gave feedback on overall
         impression, usability, and how difficult each direction would be to implement.
       </p>
-      <div class="screen-frame-wrap reveal" style="margin-top:24px; max-width:600px;">
+      <div class="screen-frame-wrap reveal" style="margin:24px auto 0; max-width:740px;">
         <img src="assets/img/epa/iteration-feedback.png" alt="Iteration rounds and stakeholder feedback" style="width:100%; border-radius:12px; border:1px solid var(--border-strong);">
       </div>
     </div>
@@ -284,24 +360,47 @@
       <!-- Navigation in motion -->
       <div class="screen-block screen-block--side" style="padding-top:40px; grid-template-columns:auto 1fr;">
         <div class="screen-frame-wrap">
-          <video src="assets/video/epa/01-epa.mp4" muted loop playsinline autoplay style="width:100%; max-width:280px; border-radius:28px 28px 44px 44px; border:1px solid var(--border-strong); box-shadow:0 20px 50px -16px rgba(168,85,247,0.35);"></video>
+          <video src="assets/video/epa/01-epa.mp4" muted loop playsinline autoplay disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" style="width:100%; max-width:252px; border-radius:28px 28px 44px 44px; border:1px solid var(--border-strong); box-shadow:0 20px 50px -16px rgba(168,85,247,0.35); pointer-events:none;"></video>
         </div>
         <div class="screen-copy reveal">
           <div class="screen-index">01</div>
           <h3>Navigation in motion</h3>
-          <p>Access and My IT were split out as their own top-level destinations, since most tickets fell into one of those two buckets but were previously buried inside "Order Something."</p>
+          <p>Ensuring that employees quickly find what they are looking for, I iterated a lot on bottom navigation. I aimed to make all the functionality a user comes to EPA for available right on the bottom navigation, so they don't need to search other screens for a particular feature.</p>
         </div>
       </div>
 
       <!-- Home Screen -->
-      <div class="screen-block screen-block--side" style="grid-template-columns:auto 1fr;">
-        <div class="screen-frame-wrap">
-          <img src="assets/img/epa/home-screen.png" alt="Employee Portal home screen" style="width:100%; max-width:280px; margin:0 auto; display:block; border-radius:16px;">
-        </div>
-        <div class="screen-copy reveal">
+      <div class="screen-block">
+        <div class="screen-copy reveal" style="max-width:100%; margin-bottom:28px;">
           <div class="screen-index">02</div>
           <h3>Home Screen</h3>
-          <p>A global/local news carousel and team updates keep the app engaging beyond ticketing. The <strong>My IT</strong> widget puts the most common request types — device and software issues — front and center, and Trending / Raised by Colleague / Role Specific tabs surface tickets relevant right now, each raisable in one tap.</p>
+        </div>
+        <div class="screen-annotated">
+          <div class="screen-annotated-frame reveal">
+            <img src="assets/img/epa/home-screen.png" alt="Employee Portal home screen">
+          </div>
+          <div class="screen-annotated-list">
+            <div class="screen-annotated-item reveal">
+              <span class="screen-annotated-arrow"></span>
+              <p>To engage the user with the application, I decided to add this section where they can view global news, location-based news, team birthdays, etc.</p>
+            </div>
+            <div class="screen-annotated-item reveal">
+              <span class="screen-annotated-arrow"></span>
+              <p>The widget is added for the My IT card to make it interactive and eye-catching. Most tickets raised are for hardware device issues or for software expiry or access issues — to make those tickets handy, a My IT section has been added on the home screen.</p>
+            </div>
+            <div class="screen-annotated-item reveal">
+              <span class="screen-annotated-arrow"></span>
+              <p>If any action is needed from the end user side on any of the devices tagged to them, or for their software, the user gets an alert from this section and can directly raise the ticket.</p>
+            </div>
+            <div class="screen-annotated-item reveal">
+              <span class="screen-annotated-arrow"></span>
+              <p>For the Access category of tickets, the user can directly raise the ticket with just a click on the Request Access button.</p>
+            </div>
+            <div class="screen-annotated-item reveal">
+              <span class="screen-annotated-arrow"></span>
+              <p>To make important tickets visible and handy to the user, I have added tabs such as Trending, Raised by Colleague, and Role Specific. The user can see all the important tickets from this section and can instantly raise a ticket.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -316,7 +415,7 @@
         <div class="screen-copy reveal">
           <div class="screen-index">03</div>
           <h3>My IT</h3>
-          <p>Device and software tickets used to be buried inside "Order Something" with many touchpoints. My IT gives them a dedicated home: users switch between the hardware tagged to them and the software they have access to, with any required action surfaced upfront so nothing gets missed.</p>
+          <p>From the data, it was observed that in most cases users raise a ticket for a device issue or for software they already have access to. Previously these tickets lived inside Order Something and weren't handy, with many touchpoints in the journey — so EPA gives them a completely different, dedicated section. In My IT, the user switches between the Devices (hardware) tagged to them and the Software they have access to. If any action is required from the user, the required-action card is surfaced upfront so it notifies them and they can easily raise the ticket. All devices tagged to the user are shown under Your Devices — if there's an issue with one, the user picks that device, selects the ticket, and raises it. The Software tab has 4 sub-tabs: software the user has access to, trending apps and software, updates, and all company apps installed on the phone — all listed to make them handy for raising an issue.</p>
         </div>
       </div>
 
@@ -325,10 +424,10 @@
         <div class="screen-copy reveal">
           <div class="screen-index">04</div>
           <h3>Access</h3>
-          <p>Many tickets never needed a form at all. For anything under Access, a single <strong>Request Access</strong> button raises the ticket instantly — with trending groups organized in tabs so employees can scroll straight to what they need.</p>
+          <p>There were many tickets for which the form-filling process could be eliminated entirely — previously users still had to fill a form to raise them. Under Access, every ticket that doesn't need a form is listed; with just one click of the Request Access button, the user can raise it. Multiple similar widgets categorize the tickets so users can easily locate what they need — in Trending Categories, all trending groups are listed as tabs, and under each group the respective trending tickets are listed, scrollable right on the widget so the user can raise a ticket directly.</p>
         </div>
         <div class="screen-frame-wrap">
-          <video src="assets/video/epa/02-epa.mp4" muted loop playsinline autoplay style="width:100%; max-width:280px; margin:0 auto; display:block; border-radius:28px 28px 44px 44px; border:1px solid var(--border-strong); box-shadow:0 20px 50px -16px rgba(168,85,247,0.35);"></video>
+          <video src="assets/video/epa/02-epa.mp4" muted loop playsinline autoplay disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" style="width:100%; max-width:280px; margin:0 auto; display:block; border-radius:28px 28px 44px 44px; border:1px solid var(--border-strong); box-shadow:0 20px 50px -16px rgba(168,85,247,0.35); pointer-events:none;"></video>
         </div>
       </div>
 
@@ -337,10 +436,10 @@
         <div class="screen-copy reveal">
           <div class="screen-index">05</div>
           <h3>Request &amp; Report Issue</h3>
-          <p>Everything that used to live under "Order Something" and "Raise an Issue" in ServiceNow lives here now — using the same card and widget patterns as Access, so the experience stays consistent across the app.</p>
+          <p>The Request &amp; Report Issue section shows all the tickets that used to live under Order Something and Report an Issue in ServiceNow. The cards and widgets here are categorized the same way as on the Access page, to maintain consistency.</p>
         </div>
         <div class="screen-frame-wrap">
-          <video src="assets/video/epa/03-epa.mp4" muted loop playsinline autoplay style="width:100%; max-width:280px; margin:0 auto; display:block; border-radius:28px 28px 44px 44px; border:1px solid var(--border-strong); box-shadow:0 20px 50px -16px rgba(168,85,247,0.35);"></video>
+          <video src="assets/video/epa/03-epa.mp4" muted loop playsinline autoplay disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" style="width:100%; max-width:280px; margin:0 auto; display:block; border-radius:28px 28px 44px 44px; border:1px solid var(--border-strong); box-shadow:0 20px 50px -16px rgba(168,85,247,0.35); pointer-events:none;"></video>
         </div>
       </div>
 
@@ -349,7 +448,7 @@
         <div class="screen-copy reveal">
           <div class="screen-index">06</div>
           <h3>Support</h3>
-          <p>A smart chat helps users find and submit the right ticket, guiding them through the steps to try before one gets raised at all — turning self-resolvable issues into just that.</p>
+          <p>Users can easily raise tickets using the support feature. Within Support, a smart chat assists users in finding and submitting tickets — guiding them on the necessary actions to take when encountering issues with any of the company's services, and giving clear instructions on the steps to follow before raising a ticket.</p>
         </div>
         <div class="screen-frame-wrap">
           <img src="assets/img/epa/support.png" alt="Support smart chat screen" style="width:100%; max-width:280px; margin:0 auto; display:block; border-radius:16px;">
@@ -361,7 +460,7 @@
         <div class="screen-copy reveal">
           <div class="screen-index">07</div>
           <h3>Filtering the ticket</h3>
-          <p>Filtering narrows results down in four progressive stages — category, then subcategory, then the resulting tickets — with each stage's options shaped by what was already selected. Users can also adjust filters live from an overlay without losing their place.</p>
+          <p>I used filters to let users select relevant tickets by reducing data sets to their most manageable, relevant results. There are four stages to filtering a ticket — applying a filter at one stage alters the data of the next. Stage 1 is category selection: users start by selecting the category of products they're interested in. Stage 2 lets them narrow the search further by selecting subcategories, after which the respective tickets become available to select. Users can change the filter from the live screen for better interaction — on selecting a filter, they choose the category from the overlay screen. After the third stage, data for the fourth stage becomes available in groups; a filter isn't provided for the fourth stage, since the data there is very limited.</p>
         </div>
         <div class="screen-frame-wrap">
           <div class="screen-frame-multi">
@@ -387,10 +486,10 @@
         <div class="screen-copy reveal">
           <div class="screen-index">08</div>
           <h3>Eliminating the form-filling process</h3>
-          <p>Raising a ticket in ServiceNow meant repeatedly filling near-identical forms — and admins found most issues were resolvable in a few steps the user simply didn't know to try. The smart chat now offers guided steps first; if those don't resolve it, the app raises the ticket by asking only for the fields that are actually needed.</p>
+          <p>While raising a ticket on ServiceNow, users found the form-filling process very tedious and repetitive — needing to fill the form repeatedly for different tickets, often entering the same information more than once. Admin interviews also found that users could resolve many issues themselves in a few steps, but since they weren't aware of those steps, they raised a ticket instead. A smart-chat-based solution addresses this: after selecting a ticket, the app guides the user through resolving it — and even if that doesn't work, the app still raises the ticket by asking only for the fields that are actually needed.</p>
         </div>
         <div class="screen-frame-wrap">
-          <video src="assets/video/epa/04-epa.mp4" muted loop playsinline autoplay style="width:100%; max-width:280px; margin:0 auto; display:block; border-radius:28px 28px 44px 44px; border:1px solid var(--border-strong); box-shadow:0 20px 50px -16px rgba(168,85,247,0.35);"></video>
+          <video src="assets/video/epa/04-epa.mp4" muted loop playsinline autoplay disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" style="width:100%; max-width:280px; margin:0 auto; display:block; border-radius:28px 28px 44px 44px; border:1px solid var(--border-strong); box-shadow:0 20px 50px -16px rgba(168,85,247,0.35); pointer-events:none;"></video>
         </div>
       </div>
 
@@ -399,7 +498,7 @@
         <div class="screen-copy reveal">
           <div class="screen-index">09</div>
           <h3>Other supportive screens</h3>
-          <p>Notifications, profile, and personal information round out the app — kept deliberately simple so they stay out of the way of the core ticketing flows.</p>
+          <p>Notification, Profile, and Personal Information.</p>
         </div>
         <div class="screen-frame-wrap">
           <div class="screen-frame-multi">
@@ -424,9 +523,12 @@
     <div class="container">
       <h2 class="case-block-title reveal">Searching the ticket</h2>
       <p class="case-block-text reveal">
-        Employees can search by keyword or ticket number and see results instantly, with a visible
-        result count so they know how much to scan through. Auto-suggestions offer real-time,
-        predictive matches as they type — cutting the search short before it starts.
+        The search functionality allows the user to quickly locate a specific ticket. Employees can
+        enter keywords, ticket numbers, or other search criteria, and the system promptly displays
+        matching results. The number of results available is displayed — in this example, we can
+        clearly see 6 results, giving the user an idea of how long it will take to go through all of
+        them. The auto-suggestion feature provides real-time, predictive suggestions as users type in
+        the search bar.
       </p>
     </div>
   </section>

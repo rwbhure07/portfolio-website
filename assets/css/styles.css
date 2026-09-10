@@ -531,6 +531,9 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   justify-content: center;
   perspective: 3638px;
   cursor: grab;
+  /* Let the browser handle vertical page scroll natively; our own touch
+     handlers only care about horizontal movement for the drag-rotate. */
+  touch-action: pan-y;
 }
 .gallery-3d-stage.is-dragging { cursor: grabbing; }
 .gallery-3d-ring {
@@ -570,27 +573,14 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   pointer-events: none;
   -webkit-user-drag: none;
 }
+/* The 3D fan now runs at every width — script.js scales the ring down
+   (and reduces perspective to match) on narrow viewports so it fits
+   comfortably, and drag-to-rotate works via touch as well as mouse. */
 @media (max-width: 860px) {
-  .gallery-3d-stage { display: none; }
-  .gallery-mobile-row {
-    display: flex;
-    gap: 14px;
-    overflow-x: auto;
-    padding: 8px 24px 8px;
-    scroll-snap-type: x mandatory;
-    margin-top: 32px;
-  }
-  .gallery-mobile-row .gallery-card {
-    position: relative;
-    inset: auto;
-    flex: 0 0 260px;
-    height: 176px;
-    scroll-snap-align: center;
-    transform: none;
-  }
+  .gallery-3d-stage { height: 340px; perspective: 1900px; margin-top: 40px; }
 }
-@media (min-width: 861px) {
-  .gallery-mobile-row { display: none; }
+@media (max-width: 480px) {
+  .gallery-3d-stage { height: 280px; perspective: 1500px; }
 }
 
 /* ---------- Sections (generic) ---------- */
@@ -634,6 +624,15 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   overflow: hidden;
   transition: border-color .35s var(--ease), transform .35s var(--ease);
 }
+/* CAT card gets a wider visual column on desktop only — the mobile
+   breakpoint below (.featured-card { grid-template-columns: 1fr }) still
+   applies since it shares equal specificity and comes later in the
+   cascade, so this never fights the mobile single-column stack. Using an
+   inline style here previously broke mobile entirely: inline styles can't
+   be overridden by a stylesheet media query, so the fixed 0.65fr/1.35fr
+   split stayed active on narrow screens, and the text column's min-content
+   width forced the image column to 0. */
+.featured-card--cat { grid-template-columns: 0.65fr 1.35fr; }
 .featured-card::before {
   content: "";
   position: absolute;
@@ -1133,6 +1132,37 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
 .term-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
 .term-card p { font-size: 0.9rem; color: var(--text-muted); }
 
+/* Solution goals: a two-column staggered list (colored accent bar + colored
+   icon badge per goal), matching the layout and per-goal colors used for
+   this same "design goals" section on the old portfolio site. CSS multi-
+   column naturally reproduces that staggered flow (3 items down the first
+   column, 2 down the second) without a manual grid split. */
+.solution-goals { margin-top: 32px; column-count: 2; column-gap: 48px; }
+.solution-goal {
+  break-inside: avoid;
+  margin-bottom: 32px;
+  padding-left: 18px;
+  border-left: 3px solid var(--accent, var(--purple-2));
+}
+.solution-goal-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.solution-goal-head h3 { font-size: 1.08rem; font-weight: 800; letter-spacing: -0.005em; }
+.solution-goal-icon {
+  width: 32px; height: 32px; flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent, var(--purple-2));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+}
+.solution-goal p { font-size: 0.94rem; color: var(--text-muted); line-height: 1.6; }
+.solution-goal--teal { --accent: #25C9A2; }
+.solution-goal--coral { --accent: #FD8369; }
+.solution-goal--red { --accent: #ED4C45; }
+.solution-goal--blue { --accent: #1680D6; }
+.solution-goal--cyan { --accent: #26CCE3; }
+@media (max-width: 700px) {
+  .solution-goals { column-count: 1; }
+}
+
 /* persona / role cards */
 .persona-grid { margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .persona-card { padding: 28px; border-radius: var(--radius-md); background: rgba(255,255,255,0.03); border: 1px solid var(--border); }
@@ -1201,6 +1231,9 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
 .sticky-group-label { font-size: 0.82rem; font-weight: 700; color: var(--text-faint); margin-bottom: 14px; line-height: 1.35; }
 .sticky-notes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .sticky-note {
+  display: flex;
+  align-items: center;
+  min-height: 96px;
   font-size: 0.6rem;
   line-height: 1.35;
   padding: 8px 9px;
@@ -1273,6 +1306,52 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
 }
 
 .screen-frame-wrap { filter: drop-shadow(0 24px 60px rgba(168,85,247,0.22)); }
+
+/* Annotated screen: a single screenshot beside a vertical stack of short
+   callouts, each connected back to the image by a dashed arrow — matching
+   the old portfolio's per-feature annotation style instead of one long
+   paragraph. */
+.screen-annotated {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: stretch;
+  gap: 32px;
+}
+.screen-annotated-frame { filter: drop-shadow(0 24px 60px rgba(168,85,247,0.22)); }
+.screen-annotated-frame img { width: 100%; max-width: 280px; display: block; border-radius: 16px; }
+.screen-annotated-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 6px 0;
+}
+.screen-annotated-item { display: flex; align-items: center; gap: 14px; }
+.screen-annotated-arrow {
+  position: relative;
+  flex-shrink: 0;
+  width: 44px;
+  height: 1px;
+  margin-right: 8px;
+  background-image: linear-gradient(to right, var(--text-faint) 55%, transparent 0%);
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+}
+.screen-annotated-arrow::after {
+  content: "";
+  position: absolute;
+  right: -1px; top: 50%;
+  width: 7px; height: 7px;
+  border-top: 1px solid var(--text-faint);
+  border-right: 1px solid var(--text-faint);
+  transform: translateY(-50%) rotate(45deg);
+}
+.screen-annotated-item p { margin: 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; }
+@media (max-width: 860px) {
+  .screen-annotated { grid-template-columns: 1fr; }
+  .screen-annotated-frame { justify-self: center; }
+  .screen-annotated-arrow { display: none; }
+}
 .screen-frame {
   border-radius: var(--radius-md);
   background: #17141f;

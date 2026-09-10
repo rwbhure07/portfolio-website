@@ -180,13 +180,33 @@
     var dragStartX = 0;
     var dragStartRotation = 0;
 
+    /* The ring's own render size (640x432 card box, 728px card spacing) is
+       fixed in CSS at 2x for rasterization sharpness (see the CSS comment
+       on .gallery-3d-ring); this scale is what brings it down to its real
+       on-screen size. Below 860px the stage's own height/perspective also
+       shrink (CSS media queries) so the fan needs a smaller ring to match
+       — computed from viewport width so it scales smoothly between phone
+       and tablet sizes rather than jumping at a single breakpoint. */
+    var computeBaseScale = function () {
+      var w = window.innerWidth;
+      if (w >= 860) return 0.5;
+      var t = Math.max(0, Math.min(1, (w - 320) / (860 - 320)));
+      return 0.24 + t * (0.5 - 0.24);
+    };
+    var baseScale = computeBaseScale();
+
     var applyRotation = function () {
       galleryRing.style.transform =
-        "scale(0.5) " +
+        "scale(" + baseScale + ") " +
         "rotateX(" + (IDLE_TILT + scrollTiltX + cursorTiltX) + "deg) " +
         "rotateY(" + (scrollRotation + dragRotation) + "deg) " +
         "rotateZ(" + cursorTiltZ + "deg)";
     };
+
+    window.addEventListener("resize", function () {
+      baseScale = computeBaseScale();
+      applyRotation();
+    });
 
     var updateScrollRotation = function () {
       var rect = galleryStage.getBoundingClientRect();
@@ -214,30 +234,40 @@
       isDragging = false;
       galleryStage.classList.remove("is-dragging");
     };
-
-    galleryStage.addEventListener("mousedown", function (e) {
+    var startDrag = function (clientX) {
       isDragging = true;
-      dragStartX = e.clientX;
+      dragStartX = clientX;
       dragStartRotation = dragRotation;
       galleryStage.classList.add("is-dragging");
-      e.preventDefault();
-    });
-    window.addEventListener("mousemove", function (e) {
+    };
+    var continueDrag = function (clientX) {
       if (!isDragging) return;
-      var dx = e.clientX - dragStartX;
+      var dx = clientX - dragStartX;
       dragRotation = dragStartRotation + dx * 0.35;
       applyRotation();
+    };
+
+    galleryStage.addEventListener("mousedown", function (e) {
+      startDrag(e.clientX);
+      e.preventDefault();
     });
+    window.addEventListener("mousemove", function (e) { continueDrag(e.clientX); });
     window.addEventListener("mouseup", endDrag);
     galleryStage.addEventListener("mouseleave", endDrag);
-  }
-  var galleryMobileRow = document.getElementById("galleryMobileRow");
-  if (galleryMobileRow && galleryRing) {
-    galleryRing.querySelectorAll(".gallery-card").forEach(function (card) {
-      var clone = card.cloneNode(true);
-      clone.style.transform = "";
-      galleryMobileRow.appendChild(clone);
-    });
+
+    /* Touch drag-to-rotate: touch-action:pan-y on the stage (CSS) already
+       reserves vertical finger movement for the browser's native page
+       scroll, so these handlers only need to track horizontal movement —
+       no preventDefault/passive juggling required to avoid fighting scroll. */
+    galleryStage.addEventListener("touchstart", function (e) {
+      startDrag(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener("touchmove", function (e) {
+      if (!isDragging) return;
+      continueDrag(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener("touchend", endDrag);
+    window.addEventListener("touchcancel", endDrag);
   }
 
   /* Org chart connector spine: align the vertical dashed line to the
