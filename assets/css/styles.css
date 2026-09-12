@@ -846,7 +846,7 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
 .timeline-head {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 18px;
@@ -854,6 +854,8 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
 .timeline-content h3 { font-size: 1.25rem; font-weight: 700; }
 .timeline-org { color: var(--purple-3); font-size: 0.92rem; margin-top: 4px; }
 .timeline-date { font-size: 0.85rem; color: var(--text-faint); white-space: nowrap; }
+.timeline-date-col { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.timeline-subrole { font-size: 0.82rem; color: var(--text-faint); text-align: right; white-space: nowrap; }
 .timeline-list { display: flex; flex-direction: column; gap: 12px; max-width: 680px; }
 .timeline-list li { color: var(--text-muted); font-size: 0.96rem; padding-left: 20px; position: relative; }
 .timeline-list li::before {
@@ -864,7 +866,6 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
 }
 .timeline-list strong { color: var(--text); font-weight: 600; }
 
-.timeline-subrole { font-size: 0.82rem; color: var(--text-faint); margin-top: 10px; margin-bottom: 22px; }
 .timeline-projects { display: flex; flex-direction: column; gap: 24px; }
 .timeline-project-label {
   font-size: 0.78rem;
@@ -881,8 +882,9 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   grid-template-columns: 1.3fr 1fr;
   gap: 56px;
   align-items: start;
+  margin-top: 18px;
 }
-.about-copy { color: var(--text-muted); margin-top: 18px; font-size: 1rem; }
+.about-copy { color: var(--text-muted); font-size: 1rem; }
 .about-copy + .about-copy { margin-top: 14px; }
 
 .about-card {
@@ -1315,35 +1317,49 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: stretch;
-  gap: 32px;
+  gap: 0;
 }
 .screen-annotated-frame { filter: drop-shadow(0 24px 60px rgba(168,85,247,0.22)); }
 .screen-annotated-frame img { width: 100%; max-width: 280px; display: block; border-radius: 16px; }
 .screen-annotated-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 22px;
+  position: relative;
   padding: 6px 0;
 }
-.screen-annotated-item { display: flex; align-items: center; gap: 14px; }
+.screen-annotated-item {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transform: translateY(-50%);
+}
 .screen-annotated-arrow {
   position: relative;
   flex-shrink: 0;
-  width: 44px;
+  width: 76px;
   height: 1px;
   margin-right: 8px;
-  background-image: linear-gradient(to right, var(--text-faint) 55%, transparent 0%);
-  background-size: 6px 1px;
-  background-repeat: repeat-x;
+}
+.screen-annotated-arrow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, var(--purple-2), var(--purple-3));
+  -webkit-mask-image: linear-gradient(to right, #000 55%, transparent 0%);
+  mask-image: linear-gradient(to right, #000 55%, transparent 0%);
+  -webkit-mask-size: 6px 1px;
+  mask-size: 6px 1px;
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
 }
 .screen-annotated-arrow::after {
   content: "";
   position: absolute;
   right: -1px; top: 50%;
   width: 7px; height: 7px;
-  border-top: 1px solid var(--text-faint);
-  border-right: 1px solid var(--text-faint);
+  border-top: 1px solid var(--purple-3);
+  border-right: 1px solid var(--purple-3);
   transform: translateY(-50%) rotate(45deg);
 }
 .screen-annotated-item p { margin: 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; }
@@ -1351,6 +1367,8 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   .screen-annotated { grid-template-columns: 1fr; }
   .screen-annotated-frame { justify-self: center; }
   .screen-annotated-arrow { display: none; }
+  .screen-annotated-list { display: flex; flex-direction: column; gap: 22px; }
+  .screen-annotated-item { position: static; transform: none; }
 }
 .screen-frame {
   border-radius: var(--radius-md);

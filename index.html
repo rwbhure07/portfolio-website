@@ -186,6 +186,17 @@
         <div class="featured-visual-wrap">
           <div class="featured-visual featured-visual--confidential featured-visual--wireframe">
             <svg class="sbi-wireframe" viewBox="0 0 720 478" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="sbiCardShadow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="9"/>
+                </filter>
+              </defs>
+
+              <!-- Soft floating shadows, drawn behind each card so the browser and
+                   phone read as two separate layers rather than one flat plane. -->
+              <rect x="24.5" y="66.5" width="410" height="270" rx="16" fill="#000" opacity="0.4" filter="url(#sbiCardShadow)"/>
+              <rect x="468.5" y="82.5" width="178" height="360" rx="32" fill="#000" opacity="0.4" filter="url(#sbiCardShadow)"/>
+
               <!-- Browser / admin dashboard mock -->
               <rect x="24.5" y="54.5" width="410" height="270" rx="16" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.22)"/>
               <line x1="24.5" y1="88.5" x2="434.5" y2="88.5" stroke="rgba(255,255,255,0.14)"/>
@@ -259,7 +270,9 @@
               <rect x="468.5" y="70.5" width="178" height="360" rx="32" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.28)"/>
               <rect x="528" y="82" width="60" height="14" rx="7" fill="rgba(255,255,255,0.16)"/>
               <rect x="488" y="112" width="68" height="10" rx="3" fill="rgba(255,255,255,0.5)"/>
-              <circle cx="622" cy="117" r="3" fill="rgba(255,255,255,0.32)"/>
+              <circle cx="622" cy="117" r="3" fill="#e879f9">
+                <animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/>
+              </circle>
 
               <rect x="484" y="136" width="146" height="88" rx="14" fill="var(--purple-3)" fill-opacity="0.14" stroke="rgba(232,121,249,0.4)"/>
               <rect x="500" y="152" width="48" height="6" rx="3" fill="rgba(255,255,255,0.35)"/>
@@ -268,12 +281,12 @@
               <path d="M509 198 L513 194 L517 198" stroke="#2dd4bf" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
               <rect x="521" y="195" width="24" height="4" rx="2" fill="#2dd4bf" fill-opacity="0.8"/>
 
-              <circle cx="506" cy="246" r="16" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
-              <rect x="501" y="245" width="10" height="2" rx="1" fill="rgba(255,255,255,0.45)"/>
-              <circle cx="562" cy="246" r="16" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
-              <rect x="557" y="245" width="10" height="2" rx="1" fill="rgba(255,255,255,0.45)"/>
-              <circle cx="618" cy="246" r="16" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)"/>
-              <rect x="613" y="245" width="10" height="2" rx="1" fill="rgba(255,255,255,0.45)"/>
+              <circle cx="506" cy="246" r="16" fill="rgba(232,121,249,0.12)" stroke="rgba(232,121,249,0.4)"/>
+              <path d="M501 246l3.5 3.5L511 242" stroke="#e879f9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="562" cy="246" r="16" fill="rgba(45,212,191,0.12)" stroke="rgba(45,212,191,0.4)"/>
+              <path d="M562 239v5l3.5 3.5" stroke="#2dd4bf" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="618" cy="246" r="16" fill="rgba(168,85,247,0.14)" stroke="rgba(168,85,247,0.4)"/>
+              <path d="M618 238l1.8 4.2 4.2.6-3 3 .7 4.2-3.7-2-3.7 2 .7-4.2-3-3 4.2-.6z" fill="var(--purple-3)" fill-opacity="0.7"/>
 
               <circle cx="500" cy="284" r="12" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/>
               <rect x="522" y="278" width="72" height="6" rx="3" fill="rgba(255,255,255,0.32)"/>
@@ -290,11 +303,11 @@
               <rect x="522" y="368" width="46" height="5" rx="2.5" fill="rgba(255,255,255,0.14)"/>
               <rect x="598" y="362" width="38" height="7" rx="3" fill="rgba(232,121,249,0.5)"/>
 
-              <rect x="484.5" y="401.5" width="146" height="29" rx="14.5" stroke="rgba(255,255,255,0.2)"/>
-              <circle cx="508" cy="416" r="5" fill="rgba(232,121,249,0.6)"/>
-              <circle cx="540" cy="416" r="5" fill="rgba(255,255,255,0.2)"/>
-              <circle cx="572" cy="416" r="5" fill="rgba(255,255,255,0.2)"/>
-              <circle cx="604" cy="416" r="5" fill="rgba(255,255,255,0.2)"/>
+              <rect x="484.5" y="389" width="146" height="29" rx="14.5" stroke="rgba(255,255,255,0.2)"/>
+              <circle cx="508" cy="403.5" r="5" fill="rgba(232,121,249,0.6)"/>
+              <circle cx="540" cy="403.5" r="5" fill="rgba(255,255,255,0.2)"/>
+              <circle cx="572" cy="403.5" r="5" fill="rgba(255,255,255,0.2)"/>
+              <circle cx="604" cy="403.5" r="5" fill="rgba(255,255,255,0.2)"/>
             </svg>
             <p class="confidential-label">Illustrative concept · Actual product confidential under NDA</p>
           </div>
@@ -376,7 +389,6 @@
             View Full Case Study
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
-          <p class="footnote">Project specifics are under NDA with eQ Technologic. <a href="https://eqinternship.framer.website/" target="_blank" rel="noopener noreferrer" style="color:var(--purple-3); text-decoration:underline;">View the original</a></p>
         </div>
 
         <div class="featured-visual-wrap">
@@ -405,9 +417,11 @@
                 <h3>Senior UX Designer</h3>
                 <p class="timeline-org">TCS Interactive · Pune, India</p>
               </div>
-              <span class="timeline-date">Jun 2025 — Present</span>
+              <div class="timeline-date-col">
+                <span class="timeline-date">Jun 2025 — Present</span>
+                <p class="timeline-subrole">UX Designer · Jul 2022 — May 2025</p>
+              </div>
             </div>
-            <p class="timeline-subrole">Previously UX Designer · Jul 2022 — May 2025</p>
 
             <div class="timeline-projects">
               <div class="timeline-project">
@@ -467,10 +481,13 @@
 
   <!-- ABOUT -->
   <section class="section" id="about">
-    <div class="container about-grid">
+    <div class="container">
       <div class="reveal">
         <p class="eyebrow">About</p>
         <h2 class="section-title">A little more about me</h2>
+      </div>
+      <div class="about-grid">
+      <div class="reveal">
         <p class="about-copy">
           I'm a UX Designer with 4+ years designing digital experiences, owning work from research
           through production handoff across B2B SaaS, B2C and enterprise products on web and mobile.
@@ -518,6 +535,7 @@
           <span class="about-card-label">Also published</span>
           <span class="about-card-value">Paper presented at the 4th International Ankara Multidisciplinary Studies Congress</span>
         </div>
+      </div>
       </div>
     </div>
   </section>
