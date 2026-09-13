@@ -1298,9 +1298,9 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 48px;
+  gap: 88px;
 }
-.screen-block--side .screen-copy { max-width: 100%; margin: 0; }
+.screen-block--side .screen-copy { max-width: 480px; margin: 0; }
 .screen-block--side .screen-frame-wrap { justify-self: end; }
 @media (max-width: 860px) {
   .screen-block--side { grid-template-columns: 1fr; }
@@ -1320,7 +1320,7 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   gap: 0;
 }
 .screen-annotated-frame { filter: drop-shadow(0 24px 60px rgba(168,85,247,0.22)); }
-.screen-annotated-frame img { width: 100%; max-width: 280px; display: block; border-radius: 16px; }
+.screen-annotated-frame img { width: 100%; max-width: 234px; display: block; border-radius: 16px; }
 .screen-annotated-list {
   position: relative;
   padding: 6px 0;
@@ -1362,7 +1362,7 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   border-right: 1px solid var(--purple-3);
   transform: translateY(-50%) rotate(45deg);
 }
-.screen-annotated-item p { margin: 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; }
+.screen-annotated-item p { margin: 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; max-width: 480px; }
 @media (max-width: 860px) {
   .screen-annotated { grid-template-columns: 1fr; }
   .screen-annotated-frame { justify-self: center; }
@@ -1387,6 +1387,8 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
 .screen-frame-label { font-size: 0.78rem; color: var(--text-faint); font-weight: 500; }
 .screen-frame img { width: 100%; height: auto; display: block; }
 .screen-frame-multi { display: flex; flex-direction: column; gap: 14px; }
+.screen-frame-captioned { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.screen-frame-caption { font-size: 0.8rem; color: var(--text-faint); text-align: center; }
 
 /* glassmorphism wireframe frames: same treatment as the landing page's
    featured-visual cards, reused for the case study screen walkthrough. */
