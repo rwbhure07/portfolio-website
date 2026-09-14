@@ -1293,17 +1293,20 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
 .screen-copy p { color: var(--text-muted); font-size: 0.98rem; }
 .screen-copy p + p { margin-top: 12px; }
 
-/* side-by-side variant: supporting copy next to the frame instead of above it */
+/* side-by-side variant: supporting copy next to the frame instead of above it —
+   the frame+copy pair is treated as one unit and centered as a whole, rather
+   than the copy column stretching to fill the container. */
 .screen-block--side {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto auto;
+  justify-content: center;
   align-items: center;
   gap: 88px;
 }
 .screen-block--side .screen-copy { max-width: 480px; margin: 0; }
 .screen-block--side .screen-frame-wrap { justify-self: end; }
 @media (max-width: 860px) {
-  .screen-block--side { grid-template-columns: 1fr; }
+  .screen-block--side { grid-template-columns: 1fr; justify-content: initial; }
   .screen-block--side .screen-frame-wrap { justify-self: center; }
 }
 
@@ -1315,7 +1318,8 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
    paragraph. */
 .screen-annotated {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto auto;
+  justify-content: center;
   align-items: stretch;
   gap: 0;
 }
@@ -1323,6 +1327,7 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
 .screen-annotated-frame img { width: 100%; max-width: 234px; display: block; border-radius: 16px; }
 .screen-annotated-list {
   position: relative;
+  width: 600px;
   padding: 6px 0;
 }
 .screen-annotated-item {
@@ -1367,7 +1372,7 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   .screen-annotated { grid-template-columns: 1fr; }
   .screen-annotated-frame { justify-self: center; }
   .screen-annotated-arrow { display: none; }
-  .screen-annotated-list { display: flex; flex-direction: column; gap: 22px; }
+  .screen-annotated-list { display: flex; flex-direction: column; gap: 22px; width: auto; }
   .screen-annotated-item { position: static; transform: none; }
 }
 .screen-frame {
