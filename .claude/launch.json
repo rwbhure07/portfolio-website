@@ -1,0 +1,39 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Expo (Metro bundler — all platforms)",
+      "runtimeExecutable": "npx.cmd",
+      "runtimeArgs": ["expo", "start"],
+      "cwd": "aeroflutter-employee-app",
+      "port": 8081
+    },
+    {
+      "name": "Expo Web",
+      "runtimeExecutable": "npx.cmd",
+      "runtimeArgs": ["expo", "start", "--web"],
+      "cwd": "aeroflutter-employee-app",
+      "port": 8081
+    },
+    {
+      "name": "Expo Android",
+      "runtimeExecutable": "npx.cmd",
+      "runtimeArgs": ["expo", "start", "--android"],
+      "cwd": "aeroflutter-employee-app",
+      "port": 8081
+    },
+    {
+      "name": "Expo iOS",
+      "runtimeExecutable": "npx.cmd",
+      "runtimeArgs": ["expo", "start", "--ios"],
+      "cwd": "aeroflutter-employee-app",
+      "port": 8081
+    },
+    {
+      "name": "Portfolio Website",
+      "runtimeExecutable": "npx.cmd",
+      "runtimeArgs": ["serve", "portfolio-website", "-l", "4321"],
+      "port": 4321
+    }
+  ]
+}
