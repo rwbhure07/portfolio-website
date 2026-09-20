@@ -71,9 +71,28 @@
         experience, resolving requests in a tap instead of a form.
       </p>
       <p class="case-footnote reveal">*Blue Harbor is a fictional client name used to protect confidentiality.</p>
+    </div>
 
-      <div class="hero-showcase reveal" style="margin-top:56px;">
-        <img src="assets/img/epa/hero-cover.jpg" alt="Cover image for the Employee Portal Application case study" style="width:min(880px,90vw); border-radius:14px; box-shadow:0 30px 70px -20px rgba(168,85,247,0.4), 0 14px 34px -14px rgba(0,0,0,0.6);">
+    <div class="reveal" style="margin-top:56px; padding-top:28px; border-top:1px solid transparent; border-image: linear-gradient(90deg, transparent, var(--border-strong) 20%, var(--border-strong) 80%, transparent) 1;"></div>
+
+    <div class="container case-hero-inner">
+      <div class="screen-block screen-block--side" style="margin-top:28px; padding:0; border-top:none; border-image:none;">
+        <div class="screen-frame-wrap">
+          <div class="prototype-embed-frame prototype-embed-frame--phone" data-prototype-embed data-proto-w="390">
+        <iframe src="assets/prototype/epa/index.html" title="Employee Portal Application — interactive prototype" loading="lazy" allowtransparency="true"></iframe>
+      </div>
+        </div>
+        <div class="screen-copy reveal" style="width:480px; max-width:100%;">
+          <div class="prototype-badge">
+        <span class="prototype-badge-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"></path><path d="M19 15l.9 2.6L22.5 18.5l-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9L19 15z"></path></svg>
+        </span>
+        <span class="prototype-badge-text">
+          <strong>Live, interactive prototype</strong>
+          <span>Built and rapidly iterated on using an AI-assisted coding tool</span>
+        </span>
+      </div>
+        </div>
       </div>
     </div>
   </section>
@@ -346,7 +365,7 @@
             <li>Access</li>
             <li>My IT</li>
             <li>Order Something</li>
-            <li>Raise an Issue</li>
+            <li>Report an Issue</li>
           </ul>
         </div>
       </div>
@@ -354,12 +373,12 @@
   </section>
 
   <!-- SCREEN WALKTHROUGH -->
-  <section class="case-block" style="border-top:none;">
+  <section class="case-block" style="border-top:none; padding-top:16px;">
     <div class="container">
       <!-- Navigation in motion -->
-      <div class="screen-block screen-block--side" style="padding-top:40px;">
+      <div class="screen-block screen-block--side" style="padding-top:0;">
         <div class="screen-frame-wrap">
-          <video src="assets/video/epa/01-epa.mp4" muted loop playsinline autoplay disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" style="width:100%; max-width:234px; margin:0 auto; display:block; border-radius:36px; border:1px solid var(--border-strong); box-shadow:0 20px 50px -16px rgba(168,85,247,0.35); pointer-events:none;"></video>
+          <video data-scrub muted loop playsinline autoplay disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" style="width:100%; max-width:211px; margin:0 auto; display:block; pointer-events:none;"><source src="assets/video/epa/01-epa.webm" type="video/webm"><source src="assets/video/epa/01-epa.mp4" type="video/mp4"></video>
         </div>
         <div class="screen-copy reveal">
           <div class="screen-index">01</div>
@@ -378,26 +397,26 @@
           <div class="screen-annotated-frame reveal">
             <img src="assets/img/epa/home-screen.png" alt="Employee Portal home screen">
           </div>
-          <div class="screen-annotated-list">
-            <div class="screen-annotated-item reveal" style="top:13%;">
+          <div class="screen-annotated-list screen-annotated-list--wide">
+            <div class="screen-annotated-item reveal" style="top:calc(13.3% - 85px);">
               <span class="screen-annotated-arrow"></span>
-              <p>To engage the user with the application, I decided to add this section where they can view global news, location-based news, team birthdays, etc.</p>
+              <p>When something breaks for the whole company, like a VPN slowdown, people tend to raise the same ticket again and again. I placed live incident cards at the very top of Home, so users see the problem before they go looking for help. Instead of raising a duplicate ticket, they can tap "I'm affected too", and IT can see the real impact straight away.</p>
             </div>
-            <div class="screen-annotated-item reveal" style="top: calc(21% + 20px);">
+            <div class="screen-annotated-item reveal" style="top:calc(25.2% - 46px);">
               <span class="screen-annotated-arrow"></span>
-              <p>The widget is added for the My IT card to make it interactive and eye-catching. Most tickets raised are for hardware device issues or for software expiry or access issues — to make those tickets handy, a My IT section has been added on the home screen.</p>
+              <p>Employees used to have no single place to see what IT had given them. I added a My IT card on Home that shows how many devices they have and how many need action. One tap opens My IT, where their software and devices are listed together.</p>
             </div>
-            <div class="screen-annotated-item reveal" style="top: calc(40% - 20px);">
-              <span class="screen-annotated-arrow"></span>
-              <p>If any action is needed from the end user side on any of the devices tagged to them, or for their software, the user gets an alert from this section and can directly raise the ticket.</p>
+            <div class="screen-annotated-item reveal" style="top:calc(36.2% - 55px);">
+              <span class="screen-annotated-arrow" style="top:-7px;"></span>
+              <p style="position:relative; top:10px;">Employees often learn a licence has expired or a warranty is ending only when something stops working. I show their software and devices on Home, with items needing attention first and marked plainly, like "Access expired". A toggle keeps the list short.</p>
             </div>
-            <div class="screen-annotated-item reveal" style="top: calc(56% - 20px);">
+            <div class="screen-annotated-item reveal" style="top:calc(55.8% + 60px);">
               <span class="screen-annotated-arrow"></span>
-              <p>For the Access category of tickets, the user can directly raise the ticket with just a click on the Request Access button.</p>
+              <p>People raise a ticket and then have no idea what happened to it. I bring tickets onto Home, split into Incidents (broken things) and Requested items (things they asked for). Each card shows status, ticket number and last update. "Show All" opens the full list.</p>
             </div>
-            <div class="screen-annotated-item reveal" style="top: calc(72% - 45px);">
+            <div class="screen-annotated-item reveal" style="top:47.6%;">
               <span class="screen-annotated-arrow"></span>
-              <p>To make important tickets visible and handy to the user, I have added tabs such as Trending, Raised by Colleague, and Role Specific. The user can see all the important tickets from this section and can instantly raise a ticket.</p>
+              <p style="position:relative; top:-8px;">In the old version, people had to choose the ticket type before they could find anything. I put a small catalogue window on Home, with Access, Order and Issue as tabs, so users can find the ticket upfront. The sub-categories are there by judging what the user might need, and one tap starts a request, without browsing a long catalogue.</p>
             </div>
           </div>
         </div>
@@ -411,32 +430,25 @@
           <p>From the data, it was observed that in most cases users raise a ticket for a device issue or for software they already have access to. Previously these tickets lived inside Order Something and weren't handy, with many touchpoints in the journey — so EPA gives them a completely different, dedicated section.</p>
         </div>
 
-        <div class="screen-annotated" style="padding-top:24px;">
+        <div class="screen-annotated" style="margin-top:8px;">
           <div class="screen-annotated-frame reveal">
-            <img src="assets/img/epa/my-it-1.png" alt="My IT devices tab" style="max-width:234px;">
+            <img src="assets/img/epa/my-it-2.png" alt="My IT software tab" style="max-width:211px;">
           </div>
-          <div class="screen-annotated-list">
-            <div class="screen-annotated-item reveal" style="top:20%;">
-              <span class="screen-annotated-arrow"></span>
-              <p>In My IT, the user switches between the Devices (hardware) tagged to them and the Software they have access to.</p>
-            </div>
-            <div class="screen-annotated-item reveal" style="top:38%;">
-              <span class="screen-annotated-arrow"></span>
-              <p>If any action is required from the user, the required-action card is surfaced upfront so it notifies them and they can easily raise the ticket.</p>
-            </div>
-            <div class="screen-annotated-item reveal" style="top:58%;">
-              <span class="screen-annotated-arrow"></span>
-              <p>All devices tagged to the user are shown under Your Devices — if there's an issue with one, the user picks that device, selects the ticket, and raises it.</p>
+          <div class="screen-annotated-list screen-annotated-list--copy">
+            <div class="screen-copy reveal">
+              <p>My IT is where employees manage everything assigned to them, split into Software and Devices tabs. On the Software tab, three tiles at the top show how many apps they have, how many need action and how many have updates waiting. Each tile also works as a filter, so one tap shows just that group. The list puts anything with a problem first, marked with a plain label such as "Access expired", "Licence expiring" or "Certificate expiring". Under each app, the expiry date sits next to a single action button, like Renew access, so a problem can be fixed from the list without raising a ticket. Tapping an app opens its details, including a shortcut to report an issue with it.</p>
             </div>
           </div>
         </div>
 
-        <div class="screen-block screen-block--side" style="margin-top:56px; padding:0; border-top:none; border-image:none;">
-          <div class="screen-frame-wrap">
-            <img src="assets/img/epa/my-it-2.png" alt="My IT software tab" style="width:100%; max-width:234px; margin:0 auto; display:block; border-radius:16px;">
+        <div class="screen-annotated" style="margin-top:56px; padding-top:0;">
+          <div class="screen-annotated-frame reveal">
+            <img src="assets/img/epa/my-it-1.png" alt="My IT devices tab" style="max-width:211px;">
           </div>
-          <div class="screen-copy reveal">
-            <p>The Software tab is organized into four sub-tabs: software the user has access to, trending apps and software, recent updates, and all company apps installed on the device. Bringing everything into one place makes it easily accessible, so users can quickly find the relevant software and raise an issue or request support when needed.</p>
+          <div class="screen-annotated-list screen-annotated-list--copy">
+            <div class="screen-copy reveal">
+              <p>The Devices tab lists every device assigned to the employee, such as their laptop, tablet, phone and monitor, with details like model, storage and serial number. The tiles at the top count how many are assigned, how many need action and how many are healthy. Devices with a problem come first.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -446,17 +458,15 @@
         <div class="screen-copy reveal" style="max-width:100%; margin-bottom:28px;">
           <div class="screen-index">04</div>
           <h3>Access</h3>
-          <p>There were many tickets for which the form-filling process could be eliminated entirely — previously users still had to fill a form to raise them.</p>
-          <p>Under Access, every ticket that doesn't need a form is listed; with just one click of the Request Access button, the user can raise it.</p>
+          <p>Many tickets didn't need a form at all, but users still had to fill one in to raise them. Under Access, I listed every ticket that needs no form, so the user can raise it with one tap on Request Access.</p>
         </div>
 
         <div class="screen-block screen-block--side" style="margin-top:8px; padding:0; border-top:none; border-image:none;">
-          <div class="screen-frame-wrap" style="position:relative; width:234px; margin:0 auto;">
-            <video src="assets/video/epa/02-epa.mp4" muted loop playsinline autoplay disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" style="width:100%; display:block; border-radius:36px; border:1px solid var(--border-strong); box-shadow:0 20px 50px -16px rgba(168,85,247,0.35); pointer-events:none;"></video>
-            <div aria-hidden="true" style="position:absolute; inset:0; border-radius:36px; background:#0a0a0d; clip-path:inset(0 0 0 calc(100% - 6px)); pointer-events:none;"></div>
+          <div class="screen-frame-wrap" style="position:relative; width:211px; margin:0 auto;">
+            <video data-scrub muted loop playsinline autoplay disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" style="width:100%; display:block; pointer-events:none;"><source src="assets/video/epa/02-epa.webm" type="video/webm"><source src="assets/video/epa/02-epa.mp4" type="video/mp4"></video>
           </div>
           <div class="screen-copy reveal">
-            <p>Multiple similar widgets categorize the tickets so users can easily locate what they need — in Trending Categories, all trending groups are listed as tabs, and under each group the respective trending tickets are listed, scrollable right on the widget so the user can raise a ticket directly.</p>
+            <p>The Access page opens with the most requested apps, then lets users browse by category, see what their teammates have, and check what suits their role. As the video shows, the user scrolls to explore, uses the filter to narrow to a category such as Business Apps, and taps Request on the software they need. The button turns to "Requested" and a confirmation appears, so the whole request takes one tap.</p>
           </div>
         </div>
       </div>
@@ -465,17 +475,16 @@
       <div class="screen-block">
         <div class="screen-copy reveal" style="max-width:100%; margin-bottom:28px;">
           <div class="screen-index">05</div>
-          <h3>Request &amp; Report Issue</h3>
-          <p>The Request &amp; Report Issue section shows all the tickets that used to live under Order Something and Report an Issue in ServiceNow.</p>
+          <h3>Report an Issue</h3>
+          <p>The Order Something and Report Issue sections hold all the tickets that used to live under the same two options in ServiceNow.</p>
         </div>
 
         <div class="screen-block screen-block--side" style="margin-top:8px; padding:0; border-top:none; border-image:none;">
-          <div class="screen-frame-wrap" style="position:relative; width:234px; margin:0 auto;">
-            <video src="assets/video/epa/03-epa.mp4" muted loop playsinline autoplay disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" style="width:100%; display:block; border-radius:36px; border:1px solid var(--border-strong); box-shadow:0 20px 50px -16px rgba(168,85,247,0.35); pointer-events:none;"></video>
-            <div aria-hidden="true" style="position:absolute; inset:0; border-radius:36px; background:#0a0a0d; clip-path:inset(calc(100% - 5px) 0 0 0); pointer-events:none;"></div>
+          <div class="screen-frame-wrap" style="position:relative; width:211px; margin:0 auto;">
+            <video data-scrub muted loop playsinline autoplay disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" style="width:100%; display:block; pointer-events:none;"><source src="assets/video/epa/04-epa.webm" type="video/webm"><source src="assets/video/epa/04-epa.mp4" type="video/mp4"></video>
           </div>
           <div class="screen-copy reveal">
-            <p>The cards and widgets here are categorized the same way as on the Access page, to maintain consistency.</p>
+            <p>With so many possible issues, users used to struggle to find the right one. On Report Issue they narrow it down in three steps: a category, then the area or app, then the kind of problem. As the video shows, tapping an issue opens a short chat that tries quick fixes first. If the problem stays, it raises the ticket for them with their answers already attached, so there is no form to fill in.</p>
           </div>
         </div>
       </div>
@@ -489,10 +498,10 @@
 
         <div class="screen-block screen-block--side" style="margin-top:8px; padding:0; border-top:none; border-image:none;">
           <div class="screen-frame-wrap">
-            <img src="assets/img/epa/support.png" alt="Support smart chat screen" style="width:100%; max-width:234px; margin:0 auto; display:block; border-radius:16px;">
+            <img src="assets/img/epa/support.png" alt="Support smart chat screen" style="width:100%; max-width:211px; margin:0 auto; display:block; border-radius:16px;">
           </div>
           <div class="screen-copy reveal">
-            <p>Users can easily raise tickets using the support feature. Within Support, a smart chat assists users in finding and submitting tickets — guiding them on the necessary actions to take when encountering issues with any of the company's services, and giving clear instructions on the steps to follow before raising a ticket.</p>
+            <p>Support is a chat that replaces the forms. The assistant greets the user and offers the five most common needs: raise an access request, raise a request, report an issue, track your tickets, or call local IT support. Users can tap an option or just type what they need, such as "VPN". The assistant asks a few short questions, tries quick fixes where it can, and raises the ticket for the user with their answers attached. The Support tab is reachable from the bottom navigation, so help is one tap away from any main screen.</p>
           </div>
         </div>
       </div>
@@ -502,44 +511,40 @@
         <div class="screen-copy reveal" style="max-width:100%; margin-bottom:28px;">
           <div class="screen-index">07</div>
           <h3>Filtering the ticket</h3>
-          <p>I used filters to let users select relevant tickets by reducing data sets to their most manageable, relevant results. There are four stages to filtering a ticket — applying a filter at one stage alters the data of the next.</p>
+          <p>I used filters to help users reach the right ticket by narrowing a large list down to a few relevant results. The filter has three stages, and each choice changes what appears in the next one, so users only see options that lead to real tickets.</p>
         </div>
 
         <div class="screen-block screen-block--side" style="margin-top:8px; padding:0; border-top:none; border-image:none;">
           <div class="screen-frame-wrap">
-            <img src="assets/img/epa/filtering-intro.png" alt="Filter category selection" style="width:100%; max-width:234px; margin:0 auto; display:block; border-radius:16px;">
+            <img src="assets/img/epa/filtering-intro.png" alt="Filter category selection" style="width:100%; max-width:211px; margin:0 auto; display:block; border-radius:16px;">
           </div>
           <div class="screen-copy reveal">
             <p class="screen-index" style="margin-bottom:6px;">Stage 1</p>
-            <p>Category selection: users start by selecting the category of products they're interested in.</p>
+            <p>The user starts by choosing a category, such as Business Apps or Office 365. Each one shows how many requests it holds, so people can see the size of the list before they open it.</p>
           </div>
         </div>
 
         <div class="screen-block screen-block--side" style="margin-top:32px; padding:0; border-top:none; border-image:none;">
           <div class="screen-frame-wrap">
             <div style="display:flex; gap:14px; justify-content:center;">
-              <img src="assets/img/epa/stage1-a.png" alt="Filter stage 1 subcategories" style="width:100%; max-width:234px; border-radius:14px;">
-              <img src="assets/img/epa/stage1-b.png" alt="Filter stage 1 subcategories continued" style="width:100%; max-width:234px; border-radius:14px;">
+              <img src="assets/img/epa/filter-stage-2.png" alt="Filter stage 2 application selection" style="width:100%; max-width:211px; border-radius:14px;">
             </div>
           </div>
           <div class="screen-copy reveal">
             <p class="screen-index" style="margin-bottom:6px;">Stage 2</p>
-            <p>After choosing a category, users can narrow the search further by selecting subcategories.</p>
+            <p>Once a category is chosen, only its applications appear, and several can be ticked at once. The counts update as the user picks, and the matching requests already show behind the sheet.</p>
           </div>
         </div>
 
         <div class="screen-block screen-block--side" style="margin-top:32px; padding:0; border-top:none; border-image:none;">
           <div class="screen-frame-wrap">
             <div style="display:flex; gap:14px; justify-content:center;">
-              <img src="assets/img/epa/stage2-a.png" alt="Filter live screen" style="width:100%; max-width:234px; border-radius:14px;">
-              <img src="assets/img/epa/stage2-b.png" alt="Filter overlay screen" style="width:100%; max-width:234px; border-radius:14px;">
+              <img src="assets/img/epa/filter-stage-3.png" alt="Filter stage 3 module selection with results" style="width:100%; max-width:211px; border-radius:14px;">
             </div>
           </div>
           <div class="screen-copy reveal">
-            <p>After applying the filter, the respective tickets become available for the user to select.</p>
-            <p>Users can change the filter from the live screen for better interaction — from the overlay screen, they can select the category for the selected filter.</p>
-            <p>Users can change the filter from the live screen for better interaction — on selecting a particular filter, they can select the category from the overlay screen.</p>
-            <p>After applying the filter for the third stage, data for the fourth stage becomes available in groups. The fourth stage filter isn't provided, since the data for the fourth stage is very limited.</p>
+            <p class="screen-index" style="margin-bottom:6px;">Stage 3</p>
+            <p>On the page itself, chips list the modules for the chosen applications, such as "EDI tracking grid".</p>
           </div>
         </div>
       </div>
@@ -549,20 +554,18 @@
         <div class="screen-copy reveal" style="max-width:100%; margin-bottom:28px;">
           <div class="screen-index">08</div>
           <h3>Searching the ticket</h3>
-          <p>The search functionality allows the user to quickly locate a specific ticket.</p>
-          <p>Employees can enter keywords, ticket numbers, or other search criteria, and the system promptly displays matching results.</p>
+          <p>Search helps employees find what they need without browsing. They can type a keyword or a ticket number, and results appear as they type.</p>
         </div>
 
         <div class="screen-block screen-block--side" style="margin-top:8px; padding:0; border-top:none; border-image:none;">
           <div class="screen-frame-wrap">
             <div style="display:flex; gap:14px; justify-content:center;">
-              <img src="assets/img/epa/stage3-4-a.png" alt="Search results screen" style="width:100%; max-width:234px; border-radius:14px;">
-              <img src="assets/img/epa/stage3-4-b.png" alt="Search suggestions screen" style="width:100%; max-width:234px; border-radius:14px;">
+              <img src="assets/img/epa/search-results.png" alt="Search results screen" style="width:100%; max-width:211px; border-radius:14px;">
+              <img src="assets/img/epa/search-suggestions.png" alt="Search screen with recent searches" style="width:100%; max-width:211px; border-radius:14px;">
             </div>
           </div>
           <div class="screen-copy reveal">
-            <p>The number of results available is displayed — in this example, we can clearly see 6 results, giving the user an idea of how long it will take to go through all of them.</p>
-            <p>The auto-suggestion feature provides real-time, predictive suggestions as users type in the search bar.</p>
+            <p>Search opens with the user's recent searches, so repeat lookups are one tap. As they type, results appear straight away and cover everything in the portal: apps to request access to, things to order, issues to report, their own devices and software, their tickets and FAQ answers.</p>
           </div>
         </div>
       </div>
@@ -572,15 +575,15 @@
         <div class="screen-copy reveal" style="max-width:100%; margin-bottom:28px;">
           <div class="screen-index">09</div>
           <h3>Eliminating the form-filling process</h3>
-          <p>While raising a ticket on ServiceNow, users found the form-filling process very tedious and repetitive — needing to fill the form repeatedly for different tickets, often entering the same information more than once. Admin interviews also found that users could resolve many issues themselves in a few steps, but since they weren't aware of those steps, they raised a ticket instead.</p>
+          <p>On ServiceNow, users found raising a ticket tedious and repetitive. They had to fill in a form every time, often entering the same information more than once. Admin interviews also showed that users could fix many issues themselves in a few steps. They weren't aware of those steps, so they raised a ticket instead.</p>
         </div>
 
         <div class="screen-block screen-block--side" style="margin-top:8px; padding:0; border-top:none; border-image:none;">
           <div class="screen-frame-wrap">
-            <video src="assets/video/epa/04-epa.mp4" muted loop playsinline autoplay disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" style="width:100%; max-width:234px; margin:0 auto; display:block; border-radius:36px; border:1px solid var(--border-strong); box-shadow:0 20px 50px -16px rgba(168,85,247,0.35); pointer-events:none;"></video>
+            <video data-scrub muted loop playsinline autoplay disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback" style="width:100%; max-width:211px; margin:0 auto; display:block; pointer-events:none;"><source src="assets/video/epa/09-epa.webm" type="video/webm"><source src="assets/video/epa/09-epa.mp4" type="video/mp4"></video>
           </div>
           <div class="screen-copy reveal">
-            <p>A smart-chat-based solution addresses this: after selecting a ticket, the app guides the user through resolving it — and even if that doesn't work, the app still raises the ticket by asking only for the fields that are actually needed.</p>
+            <p>In the new version, there is no form. The user opens Support and meets a smart chatbot, and taps Report an issue. They pick what is going wrong and answer a few short questions, and the chatbot walks them through quick fixes, the same steps admins said users didn't know about. If the problem stays, the chatbot raises the ticket for them.</p>
           </div>
         </div>
       </div>
@@ -593,18 +596,18 @@
         </div>
         <div class="screen-frame-wrap">
           <div class="screen-frame-multi">
-            <div style="display:flex; gap:14px; justify-content:center;">
+            <div style="display:flex; gap:69px; justify-content:center;">
               <div class="screen-frame-captioned">
-                <img src="assets/img/epa/notification.png" alt="Notifications screen" style="width:100%; max-width:234px; border-radius:14px;">
+                <img src="assets/img/epa/notification.png" alt="Notifications screen" style="width:100%; max-width:211px; border-radius:14px;">
                 <span class="screen-frame-caption">Notification</span>
               </div>
               <div class="screen-frame-captioned">
-                <img src="assets/img/epa/profile.png" alt="Profile screen" style="width:100%; max-width:234px; border-radius:14px;">
+                <img src="assets/img/epa/profile.png" alt="Profile screen" style="width:100%; max-width:211px; border-radius:14px;">
                 <span class="screen-frame-caption">Profile</span>
               </div>
               <div class="screen-frame-captioned">
-                <img src="assets/img/epa/personal-info.png" alt="Personal information screen" style="width:100%; max-width:234px; border-radius:14px;">
-                <span class="screen-frame-caption">Personal Information</span>
+                <img src="assets/img/epa/my-tickets.png" alt="My Tickets screen" style="width:100%; max-width:211px; border-radius:14px;">
+                <span class="screen-frame-caption">My Tickets</span>
               </div>
             </div>
           </div>

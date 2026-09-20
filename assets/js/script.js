@@ -324,12 +324,116 @@
       protoEmbeds.forEach(function (wrap) {
         var iframe = wrap.querySelector("iframe");
         if (!iframe) return;
-        var scale = wrap.clientWidth / 1440;
+        var scale = wrap.clientWidth / (parseFloat(wrap.getAttribute("data-proto-w")) || 1440);
         iframe.style.transform = "scale(" + scale + ")";
       });
     };
     scaleProtoEmbeds();
     window.addEventListener("resize", scaleProtoEmbeds);
+  }
+
+  /* Wireframe videos: wrap each in a box and add a hover seek bar (play /
+     pause + slider) so the clip can be scrubbed forward and back. */
+  document.querySelectorAll("video[data-scrub]").forEach(function (video) {
+    var box = document.createElement("div");
+    box.className = "video-scrub";
+    box.style.width = video.style.width || "100%";
+    box.style.maxWidth = video.style.maxWidth;
+    box.style.margin = video.style.margin;
+    video.style.width = "100%";
+    video.style.maxWidth = "none";
+    video.style.margin = "0";
+    video.style.pointerEvents = "auto";
+    video.parentNode.insertBefore(box, video);
+    box.appendChild(video);
+
+    var bar = document.createElement("div");
+    bar.className = "video-scrub-bar";
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "video-scrub-btn";
+    var range = document.createElement("input");
+    range.type = "range";
+    range.className = "video-scrub-range";
+    range.min = 0; range.max = 1000; range.value = 0; range.step = 1;
+    range.setAttribute("aria-label", "Seek video");
+    bar.appendChild(btn);
+    bar.appendChild(range);
+    box.appendChild(bar);
+
+    var icon = function () {
+      btn.setAttribute("aria-label", video.paused ? "Play" : "Pause");
+      btn.innerHTML = video.paused
+        ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg>'
+        : '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>';
+    };
+    var scrubbing = false;
+    var sync = function () {
+      if (!scrubbing && video.duration) {
+        range.value = Math.round((video.currentTime / video.duration) * 1000);
+      }
+      range.style.setProperty("--p", (range.value / 10) + "%");
+    };
+    var tick = function () { sync(); requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+    icon();
+    btn.addEventListener("click", function () {
+      if (video.paused) { video.play(); } else { video.pause(); }
+    });
+    video.addEventListener("play", icon);
+    video.addEventListener("pause", icon);
+    range.addEventListener("input", function () {
+      scrubbing = true;
+      if (video.duration) video.currentTime = (range.value / 1000) * video.duration;
+      sync();
+    });
+    range.addEventListener("change", function () { scrubbing = false; });
+    range.addEventListener("pointerup", function () { scrubbing = false; });
+  });
+
+  /* Hero text rise: each word of the headline and intro paragraph slides up
+     out of an invisible line mask, one after another (like vidrow.co). The
+     rotating word is treated as a single unit so its 3D cube isn't clipped.
+     Replays whenever the hero scrolls back into view. */
+  var heroSection = document.getElementById("hero");
+  var heroTextEls = heroSection ? heroSection.querySelectorAll(".hero-title, .hero-sub") : [];
+  if (heroSection && heroTextEls.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var wordIndex = 0;
+    var wrapWord = function (node, free) {
+      var mask = document.createElement("span");
+      mask.className = "tw" + (free ? " tw--free" : "");
+      var inner = document.createElement("span");
+      inner.className = "tw-i";
+      inner.style.setProperty("--i", wordIndex++);
+      inner.appendChild(node);
+      mask.appendChild(inner);
+      return mask;
+    };
+    heroTextEls.forEach(function (el) {
+      el.classList.remove("reveal");
+      var isSub = el.classList.contains("hero-sub");
+      var kids = Array.prototype.slice.call(el.childNodes);
+      el.textContent = "";
+      kids.forEach(function (n) {
+        if (n.nodeType === 3) {
+          n.textContent.split(/\s+/).filter(Boolean).forEach(function (w) {
+            el.appendChild(wrapWord(document.createTextNode(w), false));
+            el.appendChild(document.createTextNode(" "));
+          });
+        } else if (n.nodeType === 1 && n.tagName !== "BR") {
+          el.appendChild(wrapWord(n, true));
+        } else {
+          el.appendChild(n);
+        }
+      });
+      el.classList.add(isSub ? "tw-sub" : "tw-title");
+    });
+    var heroTextObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        heroSection.classList.toggle("text-in", entry.isIntersecting);
+      });
+    }, { threshold: 0.25 });
+    setTimeout(function () { heroTextObserver.observe(heroSection); }, 150);
   }
 
   /* Ambient parallax: the fixed background glows drift at different

@@ -537,6 +537,9 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   touch-action: pan-y;
 }
 .gallery-3d-stage.is-dragging { cursor: grabbing; }
+/* once revealed, drop the identity blur(0) the reveal leaves behind: any
+   filter on an ancestor flattens the 3D cards into one soft offscreen layer */
+.gallery-3d-stage.reveal.in-view { filter: none; }
 .gallery-3d-ring {
   /* Rendered at 2x scale then scaled back down (see the leading scale(0.5)
      applied alongside the rotation in script.js) so each card's texture is
@@ -755,7 +758,10 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   border-radius: 8px;
   aspect-ratio: 1440 / 956;
   overflow: hidden;
-  filter: drop-shadow(0 20px 60px rgba(168,85,247,0.28));
+  /* box-shadow, not filter: drop-shadow — a filter makes the browser bake the
+     card into a bitmap at its resting size, so the hover zoom then stretches
+     that bitmap and looks soft. Without it the zoomed card re-renders sharp. */
+  box-shadow: 0 20px 60px -6px rgba(168,85,247,0.28);
   transition: transform .4s var(--ease);
 }
 /* Zoom the whole box (border + image together) as one rigid unit so
@@ -791,7 +797,6 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
     linear-gradient(160deg, #17131f, #0f0c18) padding-box,
     linear-gradient(135deg, rgba(255,255,255,0.45), rgba(232,121,249,0.4) 45%, rgba(168,85,247,0.3)) border-box;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
-  backdrop-filter: blur(6px);
   color: rgba(255,255,255,0.45);
 }
 .confidential-label { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); }
@@ -832,7 +837,8 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
      shadow; a per-frame shadow bled across into the adjacent frame during
      the push-slide transition, showing as a stray dark patch mid-swipe. */
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
-  backdrop-filter: blur(6px);
+  /* no backdrop-filter: it forces the media into its own bitmap layer, and
+     the hover zoom then stretches that bitmap (soft image / video). */
 }
 .featured-visual--portrait .visual-frame video { object-fit: contain; }
 
@@ -1071,7 +1077,7 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
               transform .9s cubic-bezier(.16,.8,.24,1),
               filter .9s cubic-bezier(.16,.8,.24,1);
 }
-.reveal.in-view { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+.reveal.in-view { opacity: 1; transform: none; filter: none; }
 
 /* ---------- Case study ---------- */
 .breadcrumb {
@@ -1187,6 +1193,21 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   border: 0;
   transform-origin: top left;
 }
+
+/* phone-sized prototype: the device is drawn inside the embed, so no glass frame */
+.prototype-embed-frame--phone {
+  width: 243px;
+  max-width: 100%;
+  margin: 0 auto;
+  aspect-ratio: 390 / 844;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  overflow: visible;
+}
+.prototype-embed-frame--phone iframe { width: 390px; height: 844px; background: transparent; }
 
 .case-block {
   padding: 64px 0;
@@ -1429,7 +1450,7 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   gap: 0;
 }
 .screen-annotated-frame { filter: drop-shadow(0 24px 60px rgba(168,85,247,0.22)); }
-.screen-annotated-frame img { width: 100%; max-width: 234px; display: block; border-radius: 16px; }
+.screen-annotated-frame img { width: 100%; max-width: 192px; display: block; border-radius: 16px; }
 .screen-annotated-list {
   position: relative;
   width: 600px;
@@ -1472,13 +1493,18 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   border-right: 1px solid var(--purple-3);
   transform: translateY(-50%) rotate(45deg);
 }
-.screen-annotated-item p { margin: 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; max-width: 480px; }
+.screen-annotated-list--wide { width: 680px; }
+.screen-annotated-list--wide .screen-annotated-item p { max-width: 580px; }
+.screen-annotated-list--copy { display: flex; align-items: center; padding-left: 98px; }
+.screen-annotated-list--copy .screen-copy { max-width: 480px; margin: 0; }
+.screen-annotated-item p { margin: 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; max-width: 500px; }
 @media (max-width: 860px) {
   .screen-annotated { grid-template-columns: 1fr; }
   .screen-annotated-frame { justify-self: center; }
   .screen-annotated-arrow { display: none; }
   .screen-annotated-list { display: flex; flex-direction: column; gap: 22px; width: auto; }
   .screen-annotated-item { position: static; transform: none; }
+  .screen-annotated-list--copy { padding-left: 0; }
 }
 .screen-frame {
   border-radius: var(--radius-md);
@@ -1698,3 +1724,63 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   .hero-cta .btn, .contact-cta .btn { width: 100%; }
   .hero-cta, .contact-cta { flex-direction: column; }
 }
+
+/* hover scrubber for wireframe videos: a slim play/seek bar that fades in
+   over the bottom of the clip, like a standard video player */
+.video-scrub { position: relative; display: block; }
+.video-scrub > video { display: block; width: 100%; margin: 0; }
+.video-scrub-bar {
+  position: absolute;
+  left: 12px; right: 12px; bottom: 20px;
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(15, 12, 24, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+  pointer-events: none;
+}
+.video-scrub:hover .video-scrub-bar,
+.video-scrub:has(:focus-visible) .video-scrub-bar { opacity: 1; transform: none; pointer-events: auto; }
+.video-scrub-btn {
+  flex-shrink: 0; width: 20px; height: 20px; padding: 0;
+  display: flex; align-items: center; justify-content: center;
+  border: 0; background: transparent; color: #fff; cursor: pointer;
+}
+.video-scrub-range {
+  -webkit-appearance: none; appearance: none;
+  flex: 1; min-width: 0; height: 14px; margin: 0;
+  background: transparent; cursor: pointer;
+  --p: 0%;
+}
+.video-scrub-range::-webkit-slider-runnable-track {
+  height: 3px; border-radius: 3px;
+  background: linear-gradient(90deg, #e879f9, #a855f7) 0 / var(--p) 100% no-repeat, rgba(255,255,255,0.25);
+}
+.video-scrub-range::-moz-range-track { height: 3px; border-radius: 3px; background: rgba(255,255,255,0.25); }
+.video-scrub-range::-moz-range-progress { height: 3px; border-radius: 3px; background: linear-gradient(90deg, #e879f9, #a855f7); }
+.video-scrub-range::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 11px; height: 11px; margin-top: -4px; border-radius: 50%;
+  background: #fff; border: 0; box-shadow: 0 0 0 3px rgba(168,85,247,0.35);
+}
+.video-scrub-range::-moz-range-thumb { width: 11px; height: 11px; border-radius: 50%; background: #fff; border: 0; box-shadow: 0 0 0 3px rgba(168,85,247,0.35); }
+
+/* hero text rise: words slide up out of a line mask, staggered */
+.tw { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em; }
+.tw--free { overflow: visible; }
+.tw-i {
+  display: inline-block;
+  transform: translateY(115%);
+  opacity: 0;
+  filter: blur(6px);
+  transition: transform .9s var(--ease), opacity .7s var(--ease), filter .7s var(--ease);
+  transition-delay: calc(var(--i) * 70ms);
+}
+.tw--free .tw-i { transform: translateY(60%); }
+.tw-sub .tw-i { transition-delay: calc(500ms + var(--i) * 18ms); }
+.hero.text-in .tw-i { transform: none; opacity: 1; filter: none; }
