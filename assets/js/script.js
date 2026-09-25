@@ -169,6 +169,8 @@
   var galleryStage = document.getElementById("galleryStage");
   var galleryRing = document.getElementById("galleryRing");
   if (galleryStage && galleryRing) {
+    /* overall size of the fan: scales width, height and depth together */
+    var GALLERY_SIZE = 1.1;
     var IDLE_TILT = 9;
     var SCROLL_TILT_X_MAX = 15;
     var scrollRotation = 0;
@@ -197,7 +199,7 @@
 
     var applyRotation = function () {
       galleryRing.style.transform =
-        "scale(" + baseScale + ") " +
+        "scale3d(" + (baseScale * GALLERY_SIZE) + ", " + (baseScale * GALLERY_SIZE) + ", " + GALLERY_SIZE + ") " +
         "rotateX(" + (IDLE_TILT + scrollTiltX + cursorTiltX) + "deg) " +
         "rotateY(" + (scrollRotation + dragRotation) + "deg) " +
         "rotateZ(" + cursorTiltZ + "deg)";
@@ -391,43 +393,45 @@
     range.addEventListener("pointerup", function () { scrubbing = false; });
   });
 
-  /* Hero text rise: each word of the headline and intro paragraph slides up
-     out of an invisible line mask, one after another (like vidrow.co). The
-     rotating word is treated as a single unit so its 3D cube isn't clipped.
-     Replays whenever the hero scrolls back into view. */
+  /* Hero text rise, modelled on vidrow.co: each LINE of the headline (and
+     then the intro paragraph) rises ~150px from below while fading in,
+     one after another, on a springy ease — no per-word masking or blur.
+     The rotating word is its own line. Replays when the hero scrolls back
+     into view. */
   var heroSection = document.getElementById("hero");
-  var heroTextEls = heroSection ? heroSection.querySelectorAll(".hero-title, .hero-sub") : [];
-  if (heroSection && heroTextEls.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    var wordIndex = 0;
-    var wrapWord = function (node, free) {
-      var mask = document.createElement("span");
-      mask.className = "tw" + (free ? " tw--free" : "");
-      var inner = document.createElement("span");
-      inner.className = "tw-i";
-      inner.style.setProperty("--i", wordIndex++);
-      inner.appendChild(node);
-      mask.appendChild(inner);
-      return mask;
-    };
-    heroTextEls.forEach(function (el) {
-      el.classList.remove("reveal");
-      var isSub = el.classList.contains("hero-sub");
-      var kids = Array.prototype.slice.call(el.childNodes);
-      el.textContent = "";
-      kids.forEach(function (n) {
-        if (n.nodeType === 3) {
-          n.textContent.split(/\s+/).filter(Boolean).forEach(function (w) {
-            el.appendChild(wrapWord(document.createTextNode(w), false));
-            el.appendChild(document.createTextNode(" "));
-          });
-        } else if (n.nodeType === 1 && n.tagName !== "BR") {
-          el.appendChild(wrapWord(n, true));
-        } else {
-          el.appendChild(n);
-        }
-      });
-      el.classList.add(isSub ? "tw-sub" : "tw-title");
+  var heroTitle = heroSection && heroSection.querySelector(".hero-title");
+  var heroSub = heroSection && heroSection.querySelector(".hero-sub");
+  if (heroSection && heroTitle && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    heroTitle.classList.remove("reveal");
+    var lineNodes = [];
+    var currentLine = [];
+    Array.prototype.slice.call(heroTitle.childNodes).forEach(function (n) {
+      if (n.nodeType === 1 && n.tagName === "BR") {
+        lineNodes.push(currentLine);
+        currentLine = [];
+      } else if (n.nodeType === 3 && !n.textContent.trim()) {
+        return;
+      } else {
+        currentLine.push(n);
+      }
     });
+    lineNodes.push(currentLine);
+    heroTitle.textContent = "";
+    lineNodes.forEach(function (nodes, i) {
+      var line = document.createElement("span");
+      line.className = "hero-line";
+      line.style.setProperty("--i", i);
+      nodes.forEach(function (n) {
+        if (n.nodeType === 3) n.textContent = n.textContent.replace(/^\s+|\s+$/g, "");
+        line.appendChild(n);
+      });
+      heroTitle.appendChild(line);
+    });
+    if (heroSub) {
+      heroSub.classList.remove("reveal");
+      heroSub.classList.add("hero-line", "hero-line--sub");
+      heroSub.style.setProperty("--i", lineNodes.length);
+    }
     var heroTextObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         heroSection.classList.toggle("text-in", entry.isIntersecting);
